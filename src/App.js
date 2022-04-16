@@ -13,7 +13,7 @@ export const UserContext = createContext()
 
 function App() {
   //  const userContext = useContext(null)
-  const [user, setUser] = useState("Jesse Hall");
+  const [user, setUser] = useState(" IMAGE URL");
   return (
     <div className="parentDiv">
      
@@ -26,15 +26,9 @@ function App() {
         
        { /* <FileUpload />  */}  
           
-        
-
        <UserContext.Provider value={user} >
              <ComponentA user2={user}  />
        </UserContext.Provider>
-        
-
-
-
 
     </div>
   );
