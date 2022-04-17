@@ -1,4 +1,4 @@
-# node version Used
+# Node version used
 v12.20.1
 
 # Getting Started with Create React App
