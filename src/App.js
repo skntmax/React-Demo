@@ -10,7 +10,7 @@ import FileUpload from './components/FileUpload';
 import ComponentA from './components/ComponentA';
 import LazyLoading from './components/LazyLoading';
 import PopOver from './components/PopOver';
- 
+import Datatable from './components/Datatable'
 export const UserContext = createContext()
 
 function App() {
@@ -33,7 +33,10 @@ function App() {
      </UserContext.Provider>  */}     
 
         {  /* <LazyLoading />   */}
-        <PopOver />
+        {  /* <PopOver />  */}
+         
+        <Datatable /> 
+
     </div>
   );
 }
