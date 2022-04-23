@@ -8,6 +8,7 @@ import Backdropcmp from './components/Backdropcmp';
 import Skeletoncmp from './components/Skeleton';
 import FileUpload from './components/FileUpload';
 import ComponentA from './components/ComponentA';
+import UseReducer from './components/UseReducer';
  
 export const UserContext = createContext()
 
@@ -26,10 +27,8 @@ function App() {
         
        { /* <FileUpload />  */}  
           
-       <UserContext.Provider value={user} >
-             <ComponentA user2={user}  />
-       </UserContext.Provider>
-
+       <UseReducer /> 
+   
     </div>
   );
 }
