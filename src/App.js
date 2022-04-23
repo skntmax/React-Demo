@@ -10,7 +10,7 @@ import FileUpload from './components/FileUpload';
 import ComponentA from './components/ComponentA';
 import LazyLoading from './components/LazyLoading';
 import ChildCompo from './components/ChildCompo';
- 
+import FormElements from './components/FormElements';
 export const UserContext = createContext()
 
 function App() {
@@ -18,15 +18,14 @@ function App() {
   const [user, setUser] = useState(" IMAGE URL");
  let prentState = 0   
    const getName = (name)=>{
-    console.log("name from child component " , `'${name}' ` , '_______ ' ,prentState );
+      
+       console.log("name from child component " , `'${name}' ` , '_______ ' ,prentState );
      
      return name
        
    }
 
- 
-
-    
+   
   return (
     <div className="parentDiv">
      
@@ -45,9 +44,10 @@ function App() {
 
        { /* <LazyLoading />  */ }
 
-        <ChildCompo getName={getName} />
+      { /*  <ChildCompo getName={getName} />    */ }
+       
 
-        
+       <FormElements />
         
     </div>
   );

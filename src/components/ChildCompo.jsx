@@ -7,8 +7,8 @@ export default function ChildCompo(props) {
   return (
     <div>
      
-     ChildCompo
-      <button  onClick={()=>{  props.getName(myName) }}> send name from child to parent  </button> 
+     sending name from child to parent component <br></br>
+      <button  onClick={ ()=>{  props.getName(myName) }}> send name from child to parent  </button> 
      
      </div>
   )
