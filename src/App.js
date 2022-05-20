@@ -15,7 +15,7 @@ import ImageUpload from './component/ImageUpload';
 import CssPlaceholder from './component/cardHover/CssPlaceholder';
 import Events from './component/Events';
 import FormEvents from './component/FormEvents';
-  
+import MouseEvents from './component/MouseEvents';  
 
 function App() {
   const myState = useSelector((state)=>state.changeTheNumber )
@@ -37,8 +37,10 @@ function App() {
 
          <div className='mainData'>
            { /* <Events  />  */ }
-            <FormEvents /> 
-          </div>
+         {  /* <FormEvents />  */} 
+             <MouseEvents  />
+             
+          </div>  
 
          </React.Fragment>
 
