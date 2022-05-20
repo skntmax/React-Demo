@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainDiv {
+    background-color: aliceblue;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* align-conten t: center; */
+}
+
+p {
+    margin: 10px;
+}
+
+.mainData{
+    height: 100vh;
+    width: 100vw;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
