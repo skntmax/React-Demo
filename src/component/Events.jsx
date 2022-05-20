@@ -30,12 +30,9 @@ const onCopy =()=>{
      lorem100Labore excepteur esse magna
       sunt ad. Duis nostrud
        ullamco anim occaecat
-         quis adipisicing. Irure pariatur pariatur veniam do Lorem commodo exercitation mollit exercitation mollit irure dolore dolor.
-         lorem100Labore excepteur esse magna
-      
+         quis adipisicing. Irure pariatur pariatur veniam do Lorem commodo exercitation mollit exercitation mollit irure dolore dolor.  
+    lorem100Labore excepteur esse magna
      </div>
-
-
 
      <div onCut={onCut} >  
      <h1>On Cut</h1>
@@ -44,7 +41,6 @@ const onCopy =()=>{
        ullamco anim occaecat
          quis adipisicing. Irure pariatur pariatur veniam do Lorem commodo exercitation mollit exercitation mollit irure dolore dolor.
          lorem100Labore excepteur esse magna
-      
      </div>
 
 
