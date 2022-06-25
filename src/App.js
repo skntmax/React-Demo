@@ -18,6 +18,7 @@ import {
 } from "react-router-dom";
 import ToolTip  from  './components/Tooltip';
 import PaginationTesting from './components/PaginationTesting';
+import Bind, { Two } from './Bind';
 
 
 export const UserContext = createContext()
@@ -52,16 +53,20 @@ function App() {
        
       </Switch>   */} 
 
-       {  /*  <LazyLoading />  */}
+        { /* <LazyLoading />   */}  
 
 
         { /* <ToolTip />  */ }
 
-         <PaginationTesting />
+    {   /* <PaginationTesting /> */}
   
-        
+        <Bind />
+     <Two />
         
 
+      
+     
+     
 
 
 
