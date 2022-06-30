@@ -28,7 +28,7 @@ export default function MouseEvents() {
             onMouseMove
             onMouseOut
             onMouseOver
-                onMouseUp
+           onMouseUp
          
          
          >

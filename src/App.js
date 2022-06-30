@@ -16,6 +16,9 @@ import CssPlaceholder from './component/cardHover/CssPlaceholder';
 import Events from './component/Events';
 import FormEvents from './component/FormEvents';
 import MouseEvents from './component/MouseEvents';  
+// import { BrowserRouter } from 'react-router-dom';
+import RouterFIle from './RouterFIle';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const myState = useSelector((state)=>state.changeTheNumber )
@@ -24,6 +27,16 @@ function App() {
     
     return ( 
       <React.Fragment>
+
+
+      <div className='mainData'>
+              <BrowserRouter>
+               <RouterFIle />
+               </BrowserRouter> 
+      </div>
+
+
+        
 
      {/* <Dashoboard/> */}
      {   /* <Selectproduct /> */ }
@@ -38,9 +51,12 @@ function App() {
          <div className='mainData'>
            { /* <Events  />  */ }
          {  /* <FormEvents />  */} 
-             <MouseEvents  />
+             {/* <MouseEvents  /> */ }
+
              
-          </div>  
+
+
+          </div>
 
          </React.Fragment>
 
