@@ -27,12 +27,11 @@ function App() {
     
     return ( 
       <React.Fragment>
-
-
+       
       <div className='mainData'>
-              <BrowserRouter>
-               <RouterFIle />
-               </BrowserRouter> 
+          <BrowserRouter>
+          <RouterFIle />
+          </BrowserRouter> 
       </div>
 
 

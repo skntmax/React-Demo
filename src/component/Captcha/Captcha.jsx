@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { load } from 'recaptcha-v3'
 import ReCAPTCHA from 'react-google-recaptcha'
+
 export default class Captcha extends Component {
      constructor(){
         super();
@@ -44,15 +45,36 @@ export default class Captcha extends Component {
 
     return (
       <div>
-       
+
       <div class="g-signin2" data-onsuccess="onSignIn"></div>
-      { <ReCAPTCHA
+      <ReCAPTCHA
       sitekey={siteKey}
       onChange={this.onChange}
-    /> }
-
+    /> 
+     
      <button disabled={!this.state.varified} onClick={this.onSubmit} className="btn btn-sm btn-primary">  Submit </button>  
+      </div>
+       
 
+    );
+  }
+}
+
+
+
+export class CC extends Component {
+  render() {
+    return (
+      <div>
+   
+    
+      <select name="plan" id="plan">
+          <option value="none" selected disabled hidden >Select an Option </option>
+          <option value="free">Free</option>
+          <option value="starter">Starter </option>
+          <option value="professional">Professional</option>
+          <option value="corporate">Corporate</option>
+      </select>
       </div>
     );
   }
