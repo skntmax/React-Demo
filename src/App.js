@@ -9,6 +9,7 @@ import Skeletoncmp from './components/Skeleton';
 import FileUpload from './components/FileUpload';
 import ComponentA from './components/ComponentA';
 import LazyLoading from './components/LazyLoading';
+import PrivateRouter from './PrivateRouter';
 
 import {
   BrowserRouter ,
@@ -57,12 +58,16 @@ function App() {
 
         { /* <ToolTip />  */ }
 
-         <PaginationTesting />
+           { /* <PaginationTesting />  */} 
+          
+       
+            
+
+
+           <BrowserRouter>
+               <PrivateRouter />
+           </BrowserRouter>
   
-        
-        
-
-
 
 
     </div>
