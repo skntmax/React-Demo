@@ -6,12 +6,14 @@ export default function LazyLoading() {
   return (
     <div>
      
-     <Suspense fallback={<div >  <h1>  Loading...</h1></div>}    >
+     
+     <Suspense fallback={<div >  <h1>  Loading...</h1></div> }    >
 
         <OtherComponent />
 
       </Suspense>
      
+
     </div>
   )
 }

@@ -19,6 +19,7 @@ import {
 import ToolTip  from  './components/Tooltip';
 import PaginationTesting from './components/PaginationTesting';
 import Bind, { Two } from './Bind';
+import Captcha from './components/Captcha';
 
 
 export const UserContext = createContext()
@@ -60,16 +61,10 @@ function App() {
 
     {   /* <PaginationTesting /> */}
   
-        <Bind />
-     <Two />
-        
-
-      
+    { /* <Bind />
+    <Two />   */}
      
-     
-
-
-
+       <Captcha />
     </div>
   );
 }
