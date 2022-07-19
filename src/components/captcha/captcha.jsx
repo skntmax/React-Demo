@@ -5,13 +5,13 @@ import { firebaseConfig } from '../../firebase';
 import firebase from 'firebase';
 
 export default function captcha() {
-    const app = initializeApp(firebaseConfig);
-    console.log(" intialised app " , app);
-    var auth = firebase.auth();
-    var provider = new firebase.auth.GoogleAuthProvider(); 
-    const analytics = getAnalytics(app);
+    // const app = initializeApp(firebaseConfig);
+    // console.log(" intialised app " , app);
+    // var auth = firebase.auth();
+    // var provider = new firebase.auth.GoogleAuthProvider(); 
+    // const analytics = getAnalytics(app);
      
-  return (
+  return (  
     <div>
       captcha
     </div>
