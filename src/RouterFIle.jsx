@@ -18,8 +18,6 @@ export default function RouterFIle() {
              <Route exact={true}  path ="/captcha" element={<Captcha /> } />
              <Route exact={true}  path ="/demo" element={<HomePage /> } />
              <Route exact={true}  path ="/cc1" element={<CC /> } />
-             
-              
              </Routes>  
               }
       
