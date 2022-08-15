@@ -3,7 +3,7 @@ import { GoogleLogin } from 'react-google-login';
 
  export default function GglLogin() {
 
-      const [user, setUser] = useState("");
+      const [user, setUser] = useState({});
 
     const onSuccess = (response) => {
         console.log("logged in succesfull " , response.profileObj);
@@ -19,13 +19,16 @@ import { GoogleLogin } from 'react-google-login';
     return (
     <div>
 
+          {Object.keys(user).length!=0? <p> Name {user.name} </p> :" " }
+
         <GoogleLogin
         clientId="698613129858-j586ntno7lvfd8b2mb7uvfv3089ghbtm.apps.googleusercontent.com"
         buttonText="Login"
         onSuccess={onSuccess}
         onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}    
-     />
+        cookiePolicy={'single_host_origin'}
+             
+       />
       
     </div>
   );

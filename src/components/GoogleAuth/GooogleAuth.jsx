@@ -17,13 +17,18 @@ import { gapi } from 'gapi-script';
        
     });
   
+
+     function getData(){
+         
+         
+
+    }
       
   
     return (
     <div >
-     
-          
-      <GoogleLogin />  <br />
+      
+      <GoogleLogin/>  <br />
       <GoogleLogout />
 
     </div>

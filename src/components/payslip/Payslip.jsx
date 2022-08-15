@@ -6,7 +6,7 @@ export default function Payslip() {
     <div className="container mt-5 mb-5">
     <div className="row">
         <div className="col-md-12">
-            <div className="text-center lh-1 mb-2">
+            <div className=" text-center lh-1 mb-2 ">
                 <h6 className="fw-bold">Payslip</h6> <span className="fw-normal">Payment slip for the month of June 2021</span>
             </div>
             <div className="d-flex justify-content-end "> <span>Working Branch:ROHINI</span> </div>
