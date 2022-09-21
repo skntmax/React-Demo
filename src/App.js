@@ -29,7 +29,7 @@ function App() {
   return (
      
     <div className="parentDiv">
-     
+          
         { /* <SwitchButton />  */ }
        { /* <CustomizedSelects /> */ }         
        { /* <Accordian /> */ }
@@ -48,9 +48,7 @@ function App() {
 
      {   /*
        <Switch>
-         
         <Route  exact={true}  path="/tooltip" component= {<Tooltip />}  />
-       
       </Switch>   */} 
 
        {  /*  <LazyLoading />  */}
@@ -61,11 +59,8 @@ function App() {
            { /* <PaginationTesting />  */} 
           
        
-            
-
-
            <BrowserRouter>
-               <PrivateRouter />
+                 <PrivateRouter />
            </BrowserRouter>
   
 

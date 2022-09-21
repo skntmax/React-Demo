@@ -5,9 +5,11 @@ import axios from 'axios'
 function Cart() {
   
      const [state, dispatch] = useReducer(reducer, {
-         products:[],
-         cart:[]
-     })
+          products:[],
+          cart:[] ,
+          total:"",
+          noOfProduct: []
+         })
       
     useEffect(() => {
  
@@ -17,16 +19,17 @@ function Cart() {
           const data  = axios.get('https://fakestoreapi.com/products/').then(res=>{
             dispatch({
                 type:"ADD_TO_CART",
-                payload:res.data
+                payload:res.data.map(ele=>{
+                   return {...ele , qty:0}
+                })
             })             
           }).catch(err=>{
              console.log(err);
           })
+         }           
 
-         }
-          
           getProducts()
-         
+
     }, [])
 
      
@@ -36,6 +39,7 @@ function Cart() {
     cart     
     <Products  state={state} dispatch={dispatch} /> 
     </div>
+     
   )
 }
 

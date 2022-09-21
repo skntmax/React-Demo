@@ -16,15 +16,7 @@ import { gapi } from 'gapi-script';
           gapi.load('client:auth2', start)
        
     });
-  
-
-     function getData(){
-         
-         
-
-    }
-      
-  
+ 
     return (
     <div >
       
