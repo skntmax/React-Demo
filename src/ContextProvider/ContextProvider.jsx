@@ -1,6 +1,7 @@
 import React ,{useState} from 'react'
 
 const ContextApiProvider = React.createContext() 
+const ContextApiReceiver = React.createContext() 
   
 
  
@@ -12,18 +13,19 @@ function ContextProvider({children}) {
    function getValueFromOtherComponent(val) {
     console.log("val>>>." , val );
      setData({['name'] :val })
-     
-     return data 
+   
 }
 
   return (
     <React.Fragment>
      <ContextApiProvider.Provider value={(e)=>getValueFromOtherComponent(e)}     >
+     <ContextApiReceiver.Provider value={data} >
          {children}
+         </ContextApiReceiver.Provider>
       </ContextApiProvider.Provider>
     </React.Fragment>
   )
 }   
 
  
-export  { ContextProvider , ContextApiProvider }
+export  { ContextProvider , ContextApiProvider , ContextApiReceiver    }
