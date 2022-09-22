@@ -18,7 +18,7 @@ function A() {
 
    return (
     <div>
-        <input  type="text" value={name} onChange={sendValueToContext} />
+        A Component <input  type="text" value={name} onChange={sendValueToContext} />
             <B />
     </div>
   )

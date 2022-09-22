@@ -11,7 +11,7 @@ function ContextProvider({children}) {
    })
    
    function getValueFromOtherComponent(val) {
-    console.log("val>>>." , val );
+    console.log("setting data from A component " , val );
      setData({['name'] :val })
    
 }

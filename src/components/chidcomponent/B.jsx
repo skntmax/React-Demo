@@ -2,6 +2,7 @@ import React from 'react'
 import {useContext} from 'react'
  import { ContextApiProvider } from '../../ContextProvider/ContextProvider'
 import { ContextApiReceiver } from '../../ContextProvider/ContextProvider'
+import Captcha from '../captcha/Captcha'
 
 function B() {
   let receiver  = useContext(ContextApiReceiver)
@@ -10,7 +11,8 @@ function B() {
    
   return (
     <div>
-        B component
+        B Component {receiver.name}
+         <Captcha />
     </div>
   )
 }
