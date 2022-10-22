@@ -30,7 +30,7 @@ export default function Captcha() {
 
     <div>
      
-      Captcha comp {receiver.name} 
+      Captcha comp { receiver?receiver.name:""} 
     
        </div>
   );

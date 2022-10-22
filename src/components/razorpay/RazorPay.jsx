@@ -7,9 +7,9 @@ function RazorPay() {
 
     const [amount, setamount] = useState('')
 
-    function pay(e) {
-        e.preventDefault()
+    function pay(e) { 
 
+        e.preventDefault()
         let model = { amount: amount }
 
         axios.post('pay/', model).then(res => {

@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from  './../../asssets/cartLogo.jpg'
-function Products({state , dispatch}) {
+function Products({ state , dispatch }) {
     
     const {products ,cart ,total} = state
 
@@ -12,7 +12,7 @@ function Products({state , dispatch}) {
     <div style={{display:"flex" , flexWrap:"wrap" , margin:"10px"}}>
      
      {products!==undefined && products.length>0 ?
-        
+       
        products.map((ele,index)=>{
             return (
         <div className="card" style={{width: "18rem" , margin:"2px"}}>
@@ -21,12 +21,12 @@ function Products({state , dispatch}) {
           <h5 className="card-title"> {ele.category}</h5>
           <p className="card-text">{ele.description}</p>
              
-           
+
            { cart.some(item=> item[0].id == ele.id )? 
             <button  className="btn btn-danger" onClick={e=>dispatch({
                 type:"REMOVE_TO_CART" ,
                 payload:{
-                     id:ele.id
+                  id:ele.id
                 } 
             }) }>  Remove to Cart  </button>
             : <button  className="btn btn-primary" onClick={e=> dispatch({

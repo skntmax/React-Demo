@@ -4,7 +4,6 @@ const ContextApiProvider = React.createContext()
 const ContextApiReceiver = React.createContext() 
   
 
- 
 function ContextProvider({children}) {
     const [data , setData ] = useState({
         name:""

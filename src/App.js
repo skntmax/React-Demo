@@ -1,5 +1,6 @@
 import React ,{createContext ,useState} from 'react'
 import './App.css';
+import './custom.css';
 import './asssets/style.css'
 import SwitchButton from './components/Switch';
 import CustomizedSelects from './components/CustomizedSelects'
@@ -11,7 +12,8 @@ import ComponentA from './components/ComponentA';
 import LazyLoading from './components/LazyLoading';
 import PrivateRouter from './PrivateRouter';
 
-import {
+
+ import {
   BrowserRouter ,
   Switch,
   Route,
@@ -26,15 +28,18 @@ export const UserContext = createContext()
 function App() {
   //  const userContext = useContext(null)
   const [user, setUser] = useState(" IMAGE URL");
+   
+
   return (
      
     <div className="parentDiv">
+       
+     
           
         { /* <SwitchButton />  */ }
        { /* <CustomizedSelects /> */ }         
        { /* <Accordian /> */ }
        { /* <Backdropcmp />  */ } 
-        
       { /* <Skeletoncmp />  */}
         
        { /* <FileUpload />  */}  
@@ -58,6 +63,27 @@ function App() {
 
            { /* <PaginationTesting />  */} 
           
+
+              
+              <BrowserRouter>
+             
+          <ul class="list-group">
+          <li class="list-group-item "> <a   href="/captcha"  >Captcha</a> </li>
+          <li class="list-group-item"> <a   href="/payslip"  >Payslip</a> </li>
+          <li class="list-group-item">       <a   href="/googleAuth"  >Google Auth </a>  </li>
+          <li class="list-group-item">      <a   href="/cart" > Cart </a>  </li>
+          <li class="list-group-item">     <a   href="/razorpay"  > Razor Pay </a></li>
+          <li class="list-group-item">         <a   href="/useContext"  >use COntext  </a> </li>
+          <li class="list-group-item">  <a   href="/make-pdf"  >Make PDF</a> </li>
+          <li class="list-group-item">  <a   href="/cart-System"  >Cart System</a> </li>
+          <li class="list-group-item">          <a   href="/pdf"   > PPDF </a>  </li>
+          
+        </ul>
+
+
+
+                
+               </BrowserRouter>
        
            <BrowserRouter>
                  <PrivateRouter />

@@ -1,0 +1,8 @@
+li:hover {
+    color: red;
+    background-color: aqua;
+}
+
+li a {
+    text-decoration: none;
+}

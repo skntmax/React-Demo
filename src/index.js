@@ -6,9 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import {ContextProvider}  from './../src/ContextProvider/ContextProvider'
 
 ReactDOM.render(
-  <ContextProvider>
+  // <ContextProvider>
     <App />
-  </ContextProvider>,
+  // </ContextProvider>
+  ,
   document.getElementById('root')
 );
 
