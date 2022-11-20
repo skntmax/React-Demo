@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import './../assets/style.css'
 export default function Todo() {
   const [prdt ,setProduct]  = useState('')
   const [list ,setList]  = useState([])
@@ -21,10 +21,14 @@ export default function Todo() {
    
     return (
          <React.Fragment>
+          <div className="main_div">
+          
+           <div> 
+           <h1> Todo -list </h1>
            <input   onChange={e=> setProduct(e.target.value)} value={prdt} />
             <button onClick={e=> setList([...list,prdt ]) }> save me </button>
-             {list && list.length>0 && 
-            
+             
+            {list && list.length>0 && 
             list.map((ele ,index)=>{
                  return (
                      <React.Fragment>
@@ -33,9 +37,13 @@ export default function Todo() {
                      {editId!=undefined &&  index==edit && <input onChange={e=> setEditValue(e.target.value) } placeholder={list[edit]}   />}
                      {edit!=undefined && index==edit && <button onClick={saveChanges}> save changes </button>}
                      </React.Fragment>
-                  
-                 )
+                  )
             })}   
+             
+            </div>
+        
+           </div>
+         
          </React.Fragment>
     )
 }
