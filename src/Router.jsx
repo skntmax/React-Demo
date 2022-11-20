@@ -24,12 +24,12 @@ export default  createBrowserRouter([
     element:  <Clock />,  
   },
   {
-    path: "/store",
+    path: "/counter",
     element:  <Index />,  
   }
 ]); 
 
 
 export const allRoutes = [
-     '/' , 'todo' ,'calc' ,"store"
+     '/' , 'todo' ,'calc' ,"counter"
 ]
