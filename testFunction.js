@@ -4,11 +4,9 @@ function insert(position,arr) {
       
      for(let i=arr.length; i>=position-1 ; i--) {
          arr[i+1] = arr[i]
-          
      }
   arr.pop()    
-  arr[position]  ="value inserted at 6  "
-  
+  arr[position]  ="value inserted at 6 "
 return arr  
 }
 

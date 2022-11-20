@@ -28,7 +28,6 @@ export default function Todo() {
             list.map((ele ,index)=>{
                  return (
                      <React.Fragment>
-                      
                       <li> {index+">"} {ele} <button onClick={e=> setList(  list.filter((ele,innerIndex) => innerIndex!=index )  ) } > delete </button>   
                      <button onClick={e=> editItem(ele, index ,e )} > Edit  </button>  </li> 
                      {editId!=undefined &&  index==edit && <input onChange={e=> setEditValue(e.target.value) } placeholder={list[edit]}   />}

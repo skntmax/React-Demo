@@ -6,8 +6,7 @@ export default function Main() {
 
   React.useEffect(()=>{
     console.log(" child compoent  ");
-    } , [cnt])  
-
+    } , [cnt]) 
 
      const clickMe =()=>{
      setCnt(cnt+1)
