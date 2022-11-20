@@ -11,8 +11,8 @@ import './../assets/style.css'
             <div className="lists" >
                 <ul className="list-group">
 
-                    {allRoutes && allRoutes.map( (ele) => {
-                        return ( <li className="list-group-item "> <Link to={ele} > {ele} </Link> </li> )
+                    { allRoutes && allRoutes.map( (ele) => {
+                        return ( <li className="list-group-item" > <Link to={ele} > {ele} </Link> </li> )
                     })}
 
                 </ul>
