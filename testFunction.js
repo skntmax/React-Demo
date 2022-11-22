@@ -6,7 +6,7 @@ function insert(position,arr) {
          arr[i+1] = arr[i]
      }
   arr.pop()    
-  arr[position]  ="value inserted at 6 "
+  arr[position]  = "value inserted at 6 "
 return arr  
 }
 

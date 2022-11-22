@@ -9,7 +9,7 @@ import router from './Router'
 function App() {
 
   useEffect(()=>{
-  console.log(" parent component ");
+  // console.log(" parent component ");
   } )  
    
 

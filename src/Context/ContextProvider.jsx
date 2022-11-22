@@ -3,7 +3,7 @@ export let context = createContext()
 
 function ContextProvider({children}) {
     return (
-    <context.Provider value=" dafualt value " >
+    <context.Provider value="dafualt value " >
       {children} 
       </context.Provider>
   )

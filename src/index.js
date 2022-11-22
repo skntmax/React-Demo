@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ContextProvider from './Context/ContextProvider';
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+
+ root.render(
   <React.StrictMode>
    <ContextProvider>
    <App />    
