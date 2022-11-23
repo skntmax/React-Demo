@@ -1,7 +1,6 @@
 import React ,{useState} from 'react'
 
 function Callback() {
-   
      const [cnt , setCnt] = useState(0)
      const [usr , setUser] = useState("")
      
@@ -9,7 +8,7 @@ function Callback() {
         random()
   } ,[usr] ) 
 
-   
+
   const mymemo = React.useMemo(()=>{
     memoCallback()
 } ,[usr] ) 

@@ -12,6 +12,7 @@ import {
 import Home from './component/Home';
 import Index from './store/Index';
 import Callback from './component/Callback';
+import HOC_comp from './component/HOC_comp';
 
 export default  createBrowserRouter([
   {
@@ -34,10 +35,14 @@ export default  createBrowserRouter([
     path: "/callback",
     element:  <Callback />,  
   }, 
+  {
+    path: "/hoc",
+    element:  <HOC_comp />,  
+  }, 
 
 ]); 
 
 
 export const allRoutes = [
-     '/' , 'todo' ,'calc' ,"counter" ,"callback"
+     '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc"
 ]
