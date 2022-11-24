@@ -6,23 +6,24 @@ import {
 
 import router from './Router'
 import { HelmetProvider } from 'react-helmet-async';
-
+import { Provider } from 'react-redux';
+import { store } from './Redux/store';
 function App() {
 
   useEffect(()=>{
   // console.log(" parent component ");
   } )  
    
-
-
+   
   return (  
-    <HelmetProvider>
+     <Provider store={store}>
+     <HelmetProvider>
    <div className="App" id="back" >
    <RouterProvider router={router} />
-
     </div>
-
     </HelmetProvider>
+      </Provider>
+   
     
   );
 }
