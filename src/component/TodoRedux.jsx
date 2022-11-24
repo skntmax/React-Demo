@@ -4,7 +4,7 @@ import { rootReducer } from '../Redux/store';
 import { useSelector } from 'react-redux';
 
 
-function Contacts() {
+function TodoRedux() {
    let todo_list = useSelector(data=> data.todoReducer ) 
      let dispatch = useDispatch()
     const [user, setUser] = useState("");
@@ -60,4 +60,4 @@ function Contacts() {
   )
 }
 
-export default Contacts
+export default TodoRedux

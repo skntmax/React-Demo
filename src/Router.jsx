@@ -13,7 +13,7 @@ import Home from './component/Home';
 import Index from './store/Index';
 import Callback from './component/Callback';
 import HOC_comp from './component/HOC_comp';
-import Contacts from './component/Contacts';
+import TodoRedux from './component/TodoRedux';
 
 export default  createBrowserRouter([
   {
@@ -41,12 +41,12 @@ export default  createBrowserRouter([
     element:  <HOC_comp />,  
   },
   {
-    path: "/contacts",
-    element:  <Contacts />,  
+    path: "/todo-redux",
+    element:  <TodoRedux />,  
   },
 
 ]); 
 
 export const allRoutes = [
-     '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"contacts"
+     '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux"
 ]
