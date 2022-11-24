@@ -5,6 +5,7 @@ import {
   } from "react-router-dom";
 
 import router from './Router'
+import { HelmetProvider } from 'react-helmet-async';
 
 function App() {
 
@@ -15,12 +16,14 @@ function App() {
 
 
   return (  
-
+    <HelmetProvider>
    <div className="App" id="back" >
    <RouterProvider router={router} />
 
     </div>
-      
+
+    </HelmetProvider>
+    
   );
 }
 

@@ -38,10 +38,8 @@ export default  createBrowserRouter([
   {
     path: "/hoc",
     element:  <HOC_comp />,  
-  }, 
-
+  },
 ]); 
-
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc"

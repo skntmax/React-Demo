@@ -15,8 +15,6 @@ export default function HOC_comp() {
          <RedCounter  color={`#${ Math.floor((Math.random()*1000000)+1)}`} cmp={HOC} />
          <RedCounter  color={`#${ Math.floor((Math.random()*1000000)+1)}`} cmp={HOC} />
           </div>
-
-         
           </div>
    
   )
