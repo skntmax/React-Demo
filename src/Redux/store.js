@@ -2,7 +2,7 @@ import { createStore } from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { combineReducers } from 'redux'
 
-let todos =  {lst: ["random" , "idk"]}
+let todos =  {lst: ["sknt max sample" , ]}
 let contact_list = ["anil" ,"sunny" ,"random name "]
   
 function todoReducer(state = todos , action ) {
@@ -11,7 +11,12 @@ function todoReducer(state = todos , action ) {
     case 'ADD_TODO':
       return { lst:[...state.lst , action.payload] }
     case 'DELETE_TODO' :
+
          return {lst : state.lst.filter((ele,index)=> index!=action.payload.id )  }
+
+    case 'EDIT' :
+           state.lst[action.payload.index] =action.payload.value   
+          return {...state }
          
       default:
       return state
