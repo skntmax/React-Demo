@@ -5,11 +5,12 @@ import { useSelector } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import {Stack} from 'react-bootstrap'; 
 
+ 
 function TodoRedux() {
    let todo_list = useSelector(data=> data.todoReducer ) 
-     let dispatch = useDispatch()
-    const [user, setUser] = useState("");
-    const [edit, setEdit] = useState(undefined);
+   let dispatch = useDispatch()
+   const [user, setUser] = useState("");
+   const [edit, setEdit] = useState(undefined);
      
   
     function saveContact(){
@@ -27,14 +28,12 @@ function TodoRedux() {
     }
 
      return (
-    <div style={{display:"flex" ,justifyContent:"center" , alignItems:"center" , height:"100vh" , flexDirection:"column"  }} >
-
-    <div>
+        <div style={{display:"flex" ,justifyContent:"center" , alignItems:"center" , height:"100vh" , flexDirection:"column"  }} >
+     <div>
         <h1> Todo List using redux  </h1>
-     </div>
-     
-    <div>
-    
+       </div>
+    <div> 
+
       <input type="text" name="name" value={user}
        onChange={e=> setUser(e.target.value)}
       />

@@ -11,16 +11,16 @@ import { store } from './Redux/store';
 function App() {
 
   useEffect(()=>{
-  // console.log(" parent component ");
-  } )  
+  // console.log(" parent component "); 
+ } )  
    
    
   return (  
      <Provider store={store}>
      <HelmetProvider>
-   <div className="App" id="back" >
-   <RouterProvider router={router} />
-    </div>
+    <div className="App" id="back" >
+    <RouterProvider router={router} />
+      </div>
     </HelmetProvider>
       </Provider>
    

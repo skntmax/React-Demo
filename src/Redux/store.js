@@ -3,10 +3,15 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import { combineReducers } from 'redux'
 
 let todos =  {lst: ["sknt max sample" , ]}
-let contact_list = ["anil" ,"sunny" ,"random name "]
+let contact_list = { 
+  list:[{
+    name:"ranodm" ,
+    phone:892393303030,
+    disc:"disctiption"
+}]}
   
 function todoReducer(state = todos , action ) {
-  debugger
+  // debugger
     switch (action.type) {
     case 'ADD_TODO':
       return { lst:[...state.lst , action.payload] }
@@ -26,9 +31,12 @@ function todoReducer(state = todos , action ) {
 
 function contacts(state = contact_list , action ) {
     switch (action.type) {
-      case 'ADD_TO_CONTACT':
-        return state.concat([action.text])
-      default:
+      case 'ADD_CONTACT': 
+        return { ...state,list:[...state.list, action.payload.data ] } 
+      
+        case 'DELETE_CONTACT': 
+          return { ...state , list:[...state.list.filter((ele,index)=> index!=action.payload.id)] }  
+        default:
         return state
     }
   }

@@ -11,5 +11,20 @@ return arr
 }
 
 console.log( insert(6,arr));
+ 
 
 
+
+let a = 1
+   a = 2  // let can be reassigned but can't be redeaclared 
+   var x =123
+    var x = 34  // var can be redeclare and resign ans have global scope 
+   const c = [2,3]  // can neither redecalre nor reassigned 
+     
+console.log('====================================');
+console.log("a",a);
+console.log('====================================');
+
+console.log('====================================');
+console.log("x" ,x);
+console.log('====================================');
