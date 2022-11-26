@@ -17,9 +17,9 @@ function App() {
    
   return (  
      <Provider store={store}>
-     <HelmetProvider>
-    <div className="App" id="back" >
-    <RouterProvider router={router} />
+      <HelmetProvider>
+      <div className="App" id="back" >
+      <RouterProvider router={router} />
       </div>
     </HelmetProvider>
       </Provider>

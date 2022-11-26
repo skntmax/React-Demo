@@ -32,11 +32,18 @@ function todoReducer(state = todos , action ) {
 function contacts(state = contact_list , action ) {
     switch (action.type) {
       case 'ADD_CONTACT': 
+       let updatedList = [...state.list, action.payload.data ]
+      localStorage.setItem('contact_list' , JSON.stringify(updatedList))
         return { ...state,list:[...state.list, action.payload.data ] } 
       
         case 'DELETE_CONTACT': 
           return { ...state , list:[...state.list.filter((ele,index)=> index!=action.payload.id)] }  
-        default:
+
+          case 'UPDATE': 
+          return { ...state , list:[...action.payload.data] }  
+          
+          
+          default:
         return state
     }
   }
@@ -45,7 +52,5 @@ function contacts(state = contact_list , action ) {
     todoReducer,contacts 
   })
   
- 
-
 
 export const store = createStore( rootReducer, composeWithDevTools() )

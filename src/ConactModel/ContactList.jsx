@@ -8,17 +8,18 @@ function DefaultExample() {
     let dispatch = useDispatch()
     let cList = useSelector(data => data.contacts)
     console.log("cList", cList);
-    localStorage.setItem( 'contact_list' , JSON.stringify(cList.list) )  
-
-    const [ct, setCt] = useState([]);
 
      useEffect(() => {
-
-        if(cList.list.length>0) {
+            debugger
              if(localStorage.getItem('contact_list')!=undefined) {
-                 setCt(JSON.parse(localStorage.getItem('contact_list')))
+                 dispatch({
+                    type:"UPDATE" ,
+                    payload:{
+                        data:JSON.parse(localStorage.getItem('contact_list')) 
+                    }
+                 })
              }
-         }
+         
          
 
      }, []);
