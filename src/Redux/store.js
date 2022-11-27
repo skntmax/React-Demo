@@ -32,14 +32,22 @@ function todoReducer(state = todos , action ) {
 function contacts(state = contact_list , action ) {
     switch (action.type) {
       case 'ADD_CONTACT': 
-       let updatedList = [...state.list, action.payload.data ]
-      localStorage.setItem('contact_list' , JSON.stringify(updatedList))
+         
+         let updatedList = [...state.list, action.payload.data]
+        
+        localStorage.setItem('contact_list' , JSON.stringify(updatedList))
+      
         return { ...state,list:[...state.list, action.payload.data ] } 
       
         case 'DELETE_CONTACT': 
-          return { ...state , list:[...state.list.filter((ele,index)=> index!=action.payload.id)] }  
+        let update_list = [...state.list.filter((ele,index)=> index!=action.payload.id)]
+          if(localStorage.getItem('contact_list')!=undefined) {
+               localStorage.setItem('contact_list',JSON.stringify(update_list)  )
+          }
+          return { ...state , list:update_list }  
 
           case 'UPDATE': 
+            
           return { ...state , list:[...action.payload.data] }  
           
           

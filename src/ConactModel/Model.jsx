@@ -17,8 +17,9 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
     
-  <ContactForm />
-      </Modal.Body>
+       <ContactForm  onHide={props.onHide} />
+
+     </Modal.Body>
     
     </Modal>
   );
@@ -29,6 +30,8 @@ function App() {
 
   return (
     <React.Fragment>
+  
+
       <Button  size="sm" variant="primary" onClick={() => setModalShow(true)}>
                   Create
       </Button>

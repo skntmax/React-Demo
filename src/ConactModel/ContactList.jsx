@@ -30,15 +30,15 @@ function DefaultExample() {
         <React.Fragment>
             {cList.list.length > 0 ? cList.list.map((ele, index) => {
                 return (
-                    <ListGroup as="ol" numbered>
-
+                    <ListGroup as="ol"  className="my-2">
+                     
                         <ListGroup.Item
                             as="li"
                             className="d-flex justify-content-between align-items-start"
                         >
                             <div className="ms-2 me-auto">
                                 <div className="fw-bold">
-                                    <Avatar name={ele.name} size="30" style={{marginRight:"5px"}} round={true} />
+                                 <Avatar name={ele.name} size="30" style={{marginRight:"5px"}} round={true} />
                                      { ele.name[0].toUpperCase()+ele.name.slice(1)}</div>
                                 Phone Number : {ele.phone}
                             </div>

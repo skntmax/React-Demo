@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FloatingLabel } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-function ContactForm() {
+function ContactForm(props) {
       let dispatch = useDispatch()
      let ct =  useSelector(ct=> ct.contacts )
       const [data, setData] = useState({
@@ -40,11 +40,11 @@ function ContactForm() {
          type:"ADD_CONTACT",
          payload:{
             data:data
-          }
-       })
+           }
+        })
 
-      
-    
+         props.onHide()
+         
         }
          
       }
