@@ -24,12 +24,11 @@ function Contacts() {
         <Nav.Link href="#home"
     
         >  <Model />  </Nav.Link>
-      </Nav>
-    </Container>
-  </Navbar>
+       </Nav>
+      </Container>
+    </Navbar>
 
    <div  style={{width:"60%" ,margin:"auto" , marginTop:"10px" , backgroundImage:`url(${back})` ,
-   
      }}>
    
    <ContactList />
