@@ -39,19 +39,16 @@ function DefaultExample() {
 
                     <React.Fragment>
 
-
                     <Accordion defaultActiveKey={[index]} className="my-2" alwaysOpen={false}>
                     <Accordion.Item eventKey={index}>
-                      <Accordion.Header > 
-                      <div >
-                      <div className="fw-bold">
-                       <Avatar name={ele.name} size="30" style={{marginRight:"5px"}} round={true} />
-                           { ele.name[0].toUpperCase()+ele.name.slice(1)}</div>
-                      Phone Number : {ele.phone}
-                  </div>
-                  
-
-                  </Accordion.Header>
+                        <Accordion.Header > 
+                        <div >
+                        <div className="fw-bold">
+                            <Avatar name={ele.name} size="30" style={{marginRight:"5px"}} round={true} />
+                                { ele.name[0].toUpperCase()+ele.name.slice(1)}</div>
+                            Phone Number : {ele.phone}
+                        </div>
+                    </Accordion.Header>
                       <Accordion.Body>
                           {ele.disc}
                           <Badge

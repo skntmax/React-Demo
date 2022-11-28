@@ -4,7 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Model from './../ConactModel/Model'
 import ContactList from './../ConactModel/ContactList'
-import back from  './../assets/images/back3.gif'
+import back from  './../assets/images/back3.jpg'
 function Contacts() {
  let style = {width:"60%" ,margin:"auto" , marginTop:"10px" ,
  
@@ -14,10 +14,8 @@ function Contacts() {
     <div style={{ backgroundImage:`url(${back})` , height:"100vh" ,
     height:"100vh" ,
     backgroundRepeat: "no-repeat",
-   backgroundSize: "100% 80%"
-   }}> 
-    
-  
+   backgroundSize: "100% 100%"
+     }}> 
      
     <Navbar bg="light" variant="light">
     <Container>
