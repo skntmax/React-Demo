@@ -2,7 +2,9 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ContactForm from './Form';
+ 
 function MyVerticallyCenteredModal(props) {
+    const {type}  =props
   return (
     <Modal
       {...props}
@@ -17,7 +19,7 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
     
-       <ContactForm  onHide={props.onHide} />
+       <ContactForm  onHide={props.onHide} type={type} />
 
      </Modal.Body>
     
@@ -25,20 +27,22 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-function App() {
+function App(props) {
   const [modalShow, setModalShow] = React.useState(false);
+  const {type}  =props
 
-  return (
+  return ( 
     <React.Fragment>
   
 
       <Button  size="sm" variant="primary" onClick={() => setModalShow(true)}>
-                  Create
+                    Create
       </Button>
 
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+         type={type}
       />
        
 

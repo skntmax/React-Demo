@@ -10,7 +10,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { hydrateRoot } from 'react-dom/client';
 const container = document.getElementById('root');
 
- hydrateRoot(container, <React.StrictMode>
+ hydrateRoot(container, 
+    <React.StrictMode>
   <ContextProvider>
      <App />    
   </ContextProvider>

@@ -1,6 +1,7 @@
-import { createStore } from 'redux'
+import { createStore , applyMiddleware } from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import { combineReducers } from 'redux'
+import  thunk from 'redux-thunk'
 
 let todos =  {lst: ["sknt max sample" , ]}
 let contact_list = { 
@@ -9,6 +10,15 @@ let contact_list = {
     phone:892393303030,
     disc:"disctiption"
 }]}
+
+
+let intialBList = { 
+  list:[{
+    name:"blog List " ,
+    disc:"blog disctiption"
+}]}
+  
+
   
 function todoReducer(state = todos , action ) {
   // debugger
@@ -29,6 +39,8 @@ function todoReducer(state = todos , action ) {
 }
 
 
+ 
+
 function contacts(state = contact_list , action ) {
     switch (action.type) {
       case 'ADD_CONTACT': 
@@ -43,7 +55,7 @@ function contacts(state = contact_list , action ) {
         let update_list = [...state.list.filter((ele,index)=> index!=action.payload.id)]
           if(localStorage.getItem('contact_list')!=undefined) {
                localStorage.setItem('contact_list',JSON.stringify(update_list)  )
-          }
+           }
           return { ...state , list:update_list }  
 
           case 'UPDATE': 
@@ -55,10 +67,25 @@ function contacts(state = contact_list , action ) {
         return state
     }
   }
-
+   
+   
+  function blogList(state =intialBList, action) {
+     
+    switch(action.type) {
+       case "BLOG_CREATE" :
+         console.log("action data " , action.payload.data);
+         return {...state}
+      default:
+        return {...state}      
+    }
+     
+  }
+   
+   
+   
   export let rootReducer = combineReducers( {
-    todoReducer,contacts 
+    todoReducer,contacts ,blogList  
   })
   
 
-export const store = createStore( rootReducer, composeWithDevTools() )
+export const store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk)) )

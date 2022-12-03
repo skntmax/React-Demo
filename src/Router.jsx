@@ -49,9 +49,15 @@ export default  createBrowserRouter([
     path: "/contact",
     element:  <Contacts />,  
   },
+
+  {
+    path: "/redux-thunk-blog-list",
+    element:  <Contacts />,  
+  },
+   
 ]);
   
 
 export const allRoutes = [
-     '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" 
+     '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" 
      ]

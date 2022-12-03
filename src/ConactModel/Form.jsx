@@ -3,9 +3,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FloatingLabel } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import getBlogs from '../actions/getBlogs'
+
 function ContactForm(props) {
+  const {type}  =props
+   
       let dispatch = useDispatch()
      let ct =  useSelector(ct=> ct.contacts )
+     let blogList =  useSelector(blog=> blog.blogList )
+
       const [data, setData] = useState({
         name:'',phone:"",disc:""
      })
@@ -34,16 +40,26 @@ function ContactForm(props) {
         } 
 
         if(checkForm()) {
-          alert("plesae full alll daa ")
-        }else{
-       dispatch({
-         type:"ADD_CONTACT",
-         payload:{
-            data:data
-           }
-        })
-
-         props.onHide()
+         alert("please fill all etries ")
+ 
+        }else{         
+        
+            if(type=="blog-form") {
+                dispatch(getBlogs())
+                props.onHide()
+               
+            }else{
+              dispatch({
+                type:"ADD_CONTACT",
+                payload:{
+                   data:data
+                  }
+               })
+                
+                  props.onHide()
+            }
+           
+      
          
         }
          
