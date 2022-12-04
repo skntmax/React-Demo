@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useEffect} from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,14 +7,22 @@ import ContactList from './../ConactModel/ContactList'
 import back from  './../assets/images/back3.jpg'
 import Blog from '../redux-thunk/Blog'; 
 import Goback from './../assets/images/go-back-2.svg'
-import { useNavigate } from 'react-router-dom';
-
- 
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import BlogList from '../ConactModel/BlogList';
+import getBlogs from '../actions/getBlogs';
+import { Dispatch } from 'react'; 
+import { useDispatch } from 'react-redux';
 
 function Contacts() {
+  let dispatch = useDispatch()
 
+    
+      useEffect(() => {
+        dispatch(getBlogs())
+      }, []) 
+ 
+    
   let navigate = useNavigate()
-  
    if(window.location.pathname=='/redux-thunk-blog-list') {
      
      return (<React.Fragment>
@@ -23,9 +31,9 @@ function Contacts() {
      backgroundRepeat: "no-repeat",
     backgroundSize: "100% 100%"
       }}> 
-       <Blog />
-        
-      
+       
+        <Blog />
+       <BlogList />
        </div> 
        </React.Fragment>) 
 

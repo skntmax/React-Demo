@@ -12,11 +12,7 @@ let contact_list = {
 }]}
 
 
-let intialBList = { 
-  list:[{
-    name:"blog List " ,
-    disc:"blog disctiption"
-}]}
+let intialBList = { list:[]}
   
 
   
@@ -61,30 +57,34 @@ function contacts(state = contact_list , action ) {
           case 'UPDATE': 
             
           return { ...state , list:[...action.payload.data] }  
-          
-          
+
           default:
         return state
     }
   }
    
    
-  function blogList(state =intialBList, action) {
-     
-    switch(action.type) {
-       case "BLOG_CREATE" :
-         console.log("action data " , action.payload.data);
-         return {...state}
-      default:
+  function blogList ( state = intialBList ,  action  ) {
+     debugger
+     switch(action.type) {
+      case "BLOG_CREATE":
+             console.log("log data " , action.payload.data );
+         return { ...state , list:action.payload.data }
+
+         case 'DELETE_BLOG': 
+         let update_blog_list = [...state.list.filter((ele,index)=> index!=action.payload.id)]
+           return { ...state , list:update_blog_list }  
+
+            
+         default:
         return {...state}      
-    }
+     }
      
   }
    
-   
-   
+
   export let rootReducer = combineReducers( {
-    todoReducer,contacts ,blogList  
+    todoReducer , contacts ,blogList  
   })
   
 

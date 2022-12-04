@@ -8,11 +8,11 @@ import ContextProvider from './Context/ContextProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { hydrateRoot } from 'react-dom/client';
-const container = document.getElementById('root');
+const root = ReactDOM.createRoot(document.getElementById("root") );
 
- hydrateRoot(container, 
+root.render(
     <React.StrictMode>
-  <ContextProvider>
+  <ContextProvider >
      <App />    
   </ContextProvider>
    

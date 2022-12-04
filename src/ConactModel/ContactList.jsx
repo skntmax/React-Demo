@@ -32,13 +32,12 @@ function DefaultExample() {
 
 
       
-
-
             {cList.list.length > 0 ? cList.list.map((ele, index) => {
+                 
+                
                 return (
 
                     <React.Fragment>
-
                     <Accordion defaultActiveKey={[index]} className="my-2" alwaysOpen={false}>
                     <Accordion.Item eventKey={index}>
                         <Accordion.Header > 

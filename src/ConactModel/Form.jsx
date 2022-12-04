@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React,{useState , useEffect} from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FloatingLabel } from 'react-bootstrap';
@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import getBlogs from '../actions/getBlogs'
 
 function ContactForm(props) {
+
+    
+
   const {type}  =props
    
       let dispatch = useDispatch()
@@ -13,13 +16,14 @@ function ContactForm(props) {
      let blogList =  useSelector(blog=> blog.blogList )
 
       const [data, setData] = useState({
-        name:'',phone:"",disc:""
-     })
+           name:'',phone:"",disc:""
+       })
   
       const onChangeHandler =(e)=>{
          let name = e.target.name
          let value = e.target.value
-      setData({
+
+          setData({
          ...data, [name]:value
         })
       }  
@@ -45,7 +49,7 @@ function ContactForm(props) {
         }else{         
         
             if(type=="blog-form") {
-                dispatch(getBlogs())
+                // dispatch(getBlogs())
                 props.onHide()
                
             }else{

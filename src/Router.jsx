@@ -2,7 +2,7 @@ import React from 'react'
 import Main from './component/Main';
 import Todo from './component/Todo';
 import Clock from './component/Clock'
- 
+import FileSystem from './component/FileSystem' 
 import {
     createBrowserRouter,
     RouterProvider,
@@ -54,10 +54,17 @@ export default  createBrowserRouter([
     path: "/redux-thunk-blog-list",
     element:  <Contacts />,  
   },
+
+  {
+    path: "/file-system",
+    element:  <FileSystem />,  
+  },
+
    
 ]);
   
 
 export const allRoutes = [
-     '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" 
+     '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
+     "file-system" 
      ]
