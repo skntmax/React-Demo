@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { allRoutes } from '../Router'
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import './../assets/style.css'
 
  export default function Home() {
+  const navigate = useNavigate();
     return (
         <div className="text-center back" >
              <h1 style={{color:"white"}}>React-Store </h1>
@@ -14,6 +15,8 @@ import './../assets/style.css'
                return (
                  <div
                 className="homepage_div "
+                onClick={ ()=>{ navigate(ele) }
+                  }
                    style={{
                      width: "150px",
                      height:"150px",
@@ -22,16 +25,13 @@ import './../assets/style.css'
                      color: "bright",
                      justifyContent:"center",
                      flexWrap:"wrap",
+
                    
                    }}
                  >
                  <Badge bg="light" text="dark" >
                  <Link to={ele} style={{textDecoration:"none" , color:"black"}} > {ele} </Link>
-               </Badge>{' '}
-
-                  
-               
-                 
+               </Badge>
                  </div>
                );
              })}

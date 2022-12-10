@@ -15,6 +15,7 @@ import Callback from './component/Callback';
 import HOC_comp from './component/HOC_comp';
 import TodoRedux from './component/TodoRedux';
 import Contacts from './component/Contacts';
+import Blog from './Blog/Blog';
 
 export default  createBrowserRouter([
   {
@@ -60,11 +61,15 @@ export default  createBrowserRouter([
     element:  <FileSystem />,  
   },
 
+  {
+    path: "/blog",
+    element:  <Blog />,  
+  },
    
 ]);
   
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-     "file-system" 
+     "file-system"  ,"blog"
      ]

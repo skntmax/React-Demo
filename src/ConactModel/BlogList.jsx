@@ -22,7 +22,6 @@ function BlogList() {
             
             <div style={{width:"50%" ,
              height:"100%" , 
-
              overflow: "auto",
            margin:"auto"
         }}>

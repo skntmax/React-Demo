@@ -13,7 +13,9 @@ let contact_list = {
 
 
 let intialBList = { list:[]}
+let intialBList2= { list:[]}
   
+
 
   
 function todoReducer(state = todos , action ) {
@@ -75,6 +77,7 @@ function contacts(state = contact_list , action ) {
          let update_blog_list = [...state.list.filter((ele,index)=> index!=action.payload.id)]
            return { ...state , list:update_blog_list }  
 
+
             
          default:
         return {...state}      
@@ -83,8 +86,22 @@ function contacts(state = contact_list , action ) {
   }
    
 
+
+
+  function blogList2 ( state = intialBList2 ,  action  ) {
+    debugger
+    switch(action.type) {
+     case "BLOG_LIST":
+        return { ...state , list:action.payload.data }
+           
+        default:
+       return {...state}      
+    }
+    
+ }
+
   export let rootReducer = combineReducers( {
-    todoReducer , contacts ,blogList  
+    todoReducer , contacts ,blogList  ,blogList2 
   })
   
 
