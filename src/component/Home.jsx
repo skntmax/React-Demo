@@ -14,18 +14,12 @@ import './../assets/style.css'
              { allRoutes && allRoutes.map((ele) => {
                return (
                  <div
-                className="homepage_div "
+                className="homepage_div div_content"
                 onClick={ ()=>{ navigate(ele) }
                   }
                    style={{
-                     width: "150px",
-                     height:"150px",
-                     backgroundColor: `rgba(207,234,217 ,${Math.random().toFixed(1)})`,
-                     margin: "2px",
-                     color: "bright",
-                     justifyContent:"center",
-                     flexWrap:"wrap",
-
+  backgroundColor: `rgba(207,234,217 ,${Math.random().toFixed(1)})`,
+                    
                    
                    }}
                  >
