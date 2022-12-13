@@ -12,7 +12,7 @@ import { useDispatch } from 'react-redux';
 import back from  './../assets/images/back7.jpg'
 import { Suspense } from 'react';
 import parse from 'html-react-parser'; 
-
+import CreateBlog from './CreateBlog'
 const BlogDiv = React.lazy(() => import("./BlogDiv"));
 
 function Blog() {
@@ -31,7 +31,7 @@ function Blog() {
       <Navbar.Brand href="#home"><span onClick={e=> navigate('/')}> <img src={Goback} width={30} /> </span> techymaxx blog  </Navbar.Brand>
       <Nav className="ml-auto">
         <Nav.Link href="#home">
-      Change theme  
+            <CreateBlog />
         </Nav.Link>
        </Nav>
       </Container>

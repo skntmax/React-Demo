@@ -27,7 +27,6 @@ export default function FullScreenBlogModal(props) {
   const [open, setOpen] = React.useState(false);
   let {type ,data} =props
     
-
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -79,8 +78,6 @@ export default function FullScreenBlogModal(props) {
     );
 
    }else if (type=="update") {
- 
-
 
     return (
       <div>

@@ -15,7 +15,7 @@ import Callback from './component/Callback';
 import HOC_comp from './component/HOC_comp';
 import TodoRedux from './component/TodoRedux';
 import Contacts from './component/Contacts';
-import Blog from './Blog/Blog';
+import Blog from './Blog/Blog'; 
 
 export default  createBrowserRouter([
   {

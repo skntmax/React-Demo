@@ -37,7 +37,7 @@ function BlogList() {
                       <div className="fw-bold">
                           <Avatar name={ele.title} size="30" style={{marginRight:"5px"}} round={true} />
                               Blog Title :{ ele.title} </div>
-                                             </div>
+                            </div>
                   </Accordion.Header>
                     <Accordion.Body>
                         {ele.completed }
@@ -46,7 +46,7 @@ function BlogList() {
                               className="mx-2" bg="primary" pill>
                               Edit
                           </Badge>
-                <Badge
+                     <Badge
                               style={{ cursor: "pointer" }}
                               onClick={e => dispatch({
                                   type: "DELETE_BLOG",

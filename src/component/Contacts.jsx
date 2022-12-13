@@ -16,7 +16,6 @@ import { useDispatch } from 'react-redux';
 function Contacts() {
   let dispatch = useDispatch()
 
-    
       useEffect(() => {
         dispatch(getBlogs())
       }, []) 
@@ -26,6 +25,7 @@ function Contacts() {
    if(window.location.pathname=='/redux-thunk-blog-list') {
      
      return (<React.Fragment>
+       
       <div style={{ backgroundImage:`url(${back})` , height:"100vh" ,
      height:"100vh" ,
      backgroundRepeat: "no-repeat",

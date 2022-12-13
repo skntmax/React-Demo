@@ -1,23 +1,22 @@
-import express from 'express'
 import * as dotenv from 'dotenv'
-import config from './config.js'
-let app = express()
-let port = config.PORT
 dotenv.config()
-let router = express.Router()
- 
-router.get('/test',(req,res)=>{
-     console.log("hhi");
-      res.json({ 
-        message:" message sent succesfully "
-     })
-      
-}) 
+import express from 'express'
+import {middlewares} from './middlewares'
+import { conn } from './databse/connection'
+import cors from 'cors'
+let app = express() 
+let port  = process.env.PORT 
 
-app.use('/user',router)
 
-app.listen(port, ()=>{
-    console.log("server connectd to "+port );
+// ----------------middlewares ---------------
+middlewares(app)
+// ----------------middlewares ---------------
+  
+
+app.get( '/'  , (req,res)=> {      
+     console.log("home page " , req.body );
 })
 
-
+app.listen(port,()=>{
+   console.log(" server connected at  "+port );
+})

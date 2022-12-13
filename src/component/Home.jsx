@@ -18,9 +18,7 @@ import './../assets/style.css'
                 onClick={ ()=>{ navigate(ele) }
                   }
                    style={{
-  backgroundColor: `rgba(207,234,217 ,${Math.random().toFixed(1)})`,
-                    
-                   
+             backgroundColor: `rgba(207,234,217 ,${Math.random().toFixed(1)})`,   
                    }}
                  >
                  <Badge bg="light" text="dark" >
