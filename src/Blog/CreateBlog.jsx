@@ -8,13 +8,16 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 import Form from 'react-bootstrap/Form';
+import { useRef } from 'react';
 
 
 function CreateBlog() {
+     let saveRef = useRef()
     const [data,setData] = React.useState({
          title:"",
          disc:"",
-         thumbnail:undefined 
+         thumbnail:undefined ,
+         show:false
 
     })
   const values = [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down'];
@@ -55,35 +58,54 @@ function CreateBlog() {
     // e.preventDefault() 
     debugger
          
+    function save(){ 
+       
+      saveRef.current.disabled=true
+      saveRef.current.backgroundColor="black"
+      saveRef.current.color="white"
+      saveRef.current.innerHTML=`<div class="spinner-border" role="status">
+    </div>`
+    
    
+    return new Promise((resolve ,reject)=>{
+        axios.post(`${process.env.REACT_APP_BASE_URL}/user/post` , data ).then(res=>{
+          console.log("blog saved ", res );
+          
+          let {status , result }  = res.data
+            const { _id } = result
+            debugger 
+           if(status==200) {
+    
+               let formdata = new FormData()
+               formdata.append('file', data.thumbnail)
+               formdata.append('id', _id )
+                
+                axios.post(`${process.env.REACT_APP_BASE_URL}/user/image` , formdata ).then(res=>{
+                 resolve(res)
+                }).catch(err=>{
+                   reject(err)
+                  })
+             }
+              
+       }).catch(err=>{
+        reject(err)
+       })
+         
+       })   
+      
+   } 
+
+   save().then(res=>{
+     
+    saveRef.current.disabled=false
+    saveRef.current.innerHTML=` save `
+
+   }).catch(err=>{
+    console.log(err);     
+   })
 
 
-    axios.post(`${process.env.REACT_APP_BASE_URL}/user/post` , data ).then(res=>{
-       console.log("blog saved ", res );
-        document.getElementById('save').style.disabled= true  
-        document.getElementById('save').style.innerHtml= "loader" 
-       let {status , result }  = res.data
-         const { _id } = result
-         debugger 
-        if(status==200) {
-
-            let formdata = new FormData()
-            formdata.append('file', data.thumbnail)
-            formdata.append('id', _id )
-             
-             axios.post(`${process.env.REACT_APP_BASE_URL}/user/image` , formdata ).then(res=>{
-               console.log("file saved ", res);
-             document.getElementById('save').style.disabled= false  
-             document.getElementById('save').style.innerHtml= "save" 
-
-             }).catch(err=>{
-               console.log(err);
-               })
-          }
-           
-    }).catch(err=>{
-        console.log(" not saved  ");
-    })
+        
 
   }
 
@@ -138,10 +160,9 @@ function CreateBlog() {
    
     </Form>
 
-    <Button variant="primary" id="save" onClick={onSubmit} className="my-2">
-        Submit
-       
-
+  
+    <Button variant="primary" ref={saveRef}  onClick={onSubmit} className="my-2">
+        save
     </Button>
 
         </Modal.Body>
