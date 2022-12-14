@@ -7,6 +7,10 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Form from 'react-bootstrap/Form';
 import { useRef } from 'react';
 
@@ -18,7 +22,6 @@ function CreateBlog() {
          disc:"",
          thumbnail:undefined ,
          show:false
-
     })
   const values = [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down'];
   const [fullscreen, setFullscreen] = useState(true);
@@ -48,8 +51,8 @@ function CreateBlog() {
   } else{
     setData({
       ...data,[name]:value 
-       })
-  } 
+        })
+    } 
 
     }
   }
@@ -59,14 +62,13 @@ function CreateBlog() {
     debugger
          
     function save(){ 
-       
+     
       saveRef.current.disabled=true
       saveRef.current.backgroundColor="black"
       saveRef.current.color="white"
       saveRef.current.innerHTML=`<div class="spinner-border" role="status">
-    </div>`
+       </div>`
     
-   
     return new Promise((resolve ,reject)=>{
         axios.post(`${process.env.REACT_APP_BASE_URL}/user/post` , data ).then(res=>{
           console.log("blog saved ", res );
@@ -95,23 +97,29 @@ function CreateBlog() {
       
    } 
 
+      
+     for(let val in {title:data.title , disc:data.disc } ) {
+      debugger
+       if(data[val] == ""  ) {
+         alert("all fields are mendatory ") 
+         return
+         }   
+      }
+      
    save().then(res=>{
-     
-    saveRef.current.disabled=false
-    saveRef.current.innerHTML=` save `
-
+     toast(" Blog created ")
+     saveRef.current.disabled=false
+     saveRef.current.innerHTML=` save `
+     window.location.reload()
    }).catch(err=>{
-    console.log(err);     
-   })
-
-
-        
+      console.log(err);     
+    })
 
   }
 
   return (
     <React.Fragment> 
-     {console.log("data " , data )}
+     
         <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
           Create Blog
         </Button>
@@ -170,6 +178,23 @@ function CreateBlog() {
         </div>  
       
       </Modal>
+
+      <ToastContainer
+position="top-right"
+autoClose={2000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
+{/* Same as */}
+<ToastContainer />
+
+
        
     </React.Fragment>
   );
