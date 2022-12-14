@@ -60,8 +60,8 @@ export default function FullScreenBlogModal(props) {
                  <MdOutlineClose />
               </IconButton>
               <Typography mx={{ ml: 2 }} variant="h6" component="div">
-                {data.title.rendered}<br />
-              <p> {data.meta.jetpack_publicize_message} </p>
+                {data.title}<br />
+       {/*              <p> {data.meta.jetpack_publicize_message} </p> */}
               </Typography>
              
             </Toolbar>
@@ -70,7 +70,7 @@ export default function FullScreenBlogModal(props) {
           </AppBar>
           
           <div style={{  width:"80%" , margin:"auto"}}>
-          {parse(data.content.rendered)}
+          {parse(data.disc)}
           </div>
 
         </Dialog>
@@ -80,6 +80,7 @@ export default function FullScreenBlogModal(props) {
    }else if (type=="update") {
 
     return (
+       
       <div>
         <Button  onClick={handleClickOpen}>
         {type=="update"?<AiOutlineEdit  size={20}/>:""} 
@@ -91,6 +92,7 @@ export default function FullScreenBlogModal(props) {
           onClose={handleClose}
           TransitionComponent={Transition}
         >
+         
           <AppBar sx={{ position: 'relative' }}>
             <Toolbar>
               <IconButton
@@ -102,7 +104,7 @@ export default function FullScreenBlogModal(props) {
                  <MdOutlineClose />
               </IconButton>
               <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                 {data.title.rendered }
+                 {data.title }
               </Typography>
               <Button autoFocus color="inherit" onClick={handleClose}>
                 save
@@ -116,8 +118,13 @@ export default function FullScreenBlogModal(props) {
          
       
         <CKEditor
+        config={(config)=>{
+          config.resize_maxWidth = 800;
+config.resize_maxHeight = 600;
+        }}
+
         editor={ ClassicEditor }
-        data={data.content.rendered}
+        data={data.disc}
         onReady={ editor => {
             // You can store the "editor" and use when it is needed.
             console.log( 'Editor is ready to use!', editor );
@@ -133,8 +140,7 @@ export default function FullScreenBlogModal(props) {
             console.log( 'Focus.', editor );
         } }
     />
-        
-      hj
+
           </div>
 
 
