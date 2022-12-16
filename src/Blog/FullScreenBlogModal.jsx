@@ -36,8 +36,7 @@ export default function FullScreenBlogModal(props) {
   let {type ,data} =props
   const [open, setOpen] = React.useState(false);
    const [disc , setDisc] = React.useState(data.disc);
-   
-    
+  
 
   function updateBlog(id,discription) {
     let model = {

@@ -30,18 +30,18 @@ React.useEffect(() => {
 
       <div className="main_blog_div1" >
          {
-            all_blogs.list.map((ele)=>{
+           all_blogs.list.map((ele)=>{
                 return (      
-        <div className="blog_div"  >
-        <div style={{display:"flex",justifyContent:"space-between"}}>
-        <FullScreenBlogModal type={"update"} data={ele}/> 
+           <div className="blog_div"  >
+           <div style={{display:"flex",justifyContent:"space-between"}}>
+           <FullScreenBlogModal type={"update"} data={ele}/> 
 
              <h5 className="blog_heading" > {ele.title }  </h5>
 
             <FullScreenBlogModal type={"show"} data={ele} />
         </div>
         <div className="blog_dialogue_box" onClick={e=> window.location.href = process.env.REACT_APP_BASE_URL+"/"+ele.image[1]  } >
-         <img className="blog_model" src={`${process.env.REACT_APP_BASE_URL+"/"+ele.image[1]}`} />
+         <img className="blog_model" src={`${ele.image[1]}`} />
        </div>
        </div> 
         )
