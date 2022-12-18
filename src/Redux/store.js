@@ -97,11 +97,25 @@ function contacts(state = contact_list , action ) {
         default:
        return {...state}      
     }
-    
  }
 
+
+
+
+ function products ( state = { list:[] } ,  action  ) {
+  debugger
+  switch(action.type) {
+   case "PAGINATE_PRODUCT":
+      return { ...state , list:action.payload.data }
+      default:
+     return {...state}      
+  }
+}
+
+
+
   export let rootReducer = combineReducers( {
-    todoReducer , contacts ,blogList  ,blogList2 
+    todoReducer , contacts ,blogList  ,blogList2 ,products 
   })
   
 

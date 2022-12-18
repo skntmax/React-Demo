@@ -1,17 +1,36 @@
+import axios from 'axios';
 import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+
+
 import './../assets/pagination.css'
 function Pagination() {
+  let dispatch = useDispatch()
+ let prd = useSelector(data=> data.products )
 
-   const [page,setPage] = React.useState(1);
-  const [prd, setPrd] = React.useState([])
+  const [page,setPage] = React.useState(1);
+  // const [prd, setPrd] = React.useState([])
+   
   function getProduct() {
-    fetch('https://fakestoreapi.com/products/')
-      .then(res => res.json())
-      .then(json =>{console.log(json);  setPrd(json)})
+    return async function(dispatch,data) {
+      try{
+       let data = await axios.get('https://fakestoreapi.com/products/')
+            dispatch({
+              type:"PAGINATE_PRODUCT",
+              payload:{
+                data:data.data
+              }
+             })
+      }catch(err){
+         alert(err)
+      }
+    
+    }
+  
     }
 
   useEffect(() => {
-    getProduct()
+     dispatch(getProduct())
   }, []);
 
 
@@ -30,16 +49,16 @@ function Pagination() {
      <div>
     <h1 style={{textAlign:'center' , fontFamily:"initial"}}>  Front-end Pagination </h1> 
     <div style={{ display: "flex" , width:"100%" , height:"200px" ,flexWrap:'wrap' }} >
-      {prd.slice((page-1)*5 , page*5 ).map((ele, indx) => {
+      {prd.list.slice((page-1)*5 , page*5 ).map((ele, indx) => {
         return (
-          <div className="card mx-2 my-2" style={{ width: "400px" , overflow:"auto", textAlign:"center"  }}>
+          <div key={indx} className="card mx-2 my-2" style={{ width: "400px" , overflow:"auto", textAlign:"center"  }}>
             <img className="card-img-top" src={ele.image} 
              style={img}
             alt="Card image cap" />
             <div className="card-body">
               <h5 className="card-title">{ele.category}</h5>
               <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add to cart </a>
+              <a href="#" className="btn btn-primary">Add to cart </a>
             </div>
           </div>
         )
@@ -47,7 +66,7 @@ function Pagination() {
 
         
     <div className="p_div">
-    {[...new Array(Math.ceil(prd.length/5))].map((_,ind)=>{
+    {[...new Array(Math.ceil(prd.list.length/5))].map((_,ind)=>{
        return (
            <React.Fragment>
 
@@ -61,7 +80,7 @@ function Pagination() {
            textAlign:"center"
            }:{}} onClick={e=>setPageNumber(ind+1)} className='pagination'> {ind+1} </span>
         
-           {page!=[...new Array(Math.ceil(prd.length/5))].length && ind==[...new Array(Math.ceil(prd.length/5))].length-1 ?<span   style={page==ind+1?{ backgroundColor:"azure" , 
+           {page!=[...new Array(Math.ceil(prd.list.length/5))].length && ind==[...new Array(Math.ceil(prd.list.length/5))].length-1 ?<span   style={page==ind+1?{ backgroundColor:"azure" , 
            border:"1px solid black" ,
            textAlign:"center"
            }:{}} onClick={e=> setPage(page+1)} className='pagination'> Next </span> :""}
