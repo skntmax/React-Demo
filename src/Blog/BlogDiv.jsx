@@ -40,19 +40,14 @@ React.useEffect(() => {
 
             <FullScreenBlogModal type={"show"} data={ele} />
         </div>
-        <div className="blog_dialogue_box" onClick={e=> window.location.href = process.env.REACT_APP_BASE_URL+"/"+ele.image[1]  } >
+        <div className="blog_dialogue_box" onClick={e=> window.location.href = process.env.REACT_APP_BASE_URL+"/"+ele.image[1] } >
          <img className="blog_model" src={`${ele.image[1]}`} />
-       </div>
-       </div> 
+         </div>
+          </div> 
         )
            })
          }
-
          </div>
-   
-
-      
-  
 
      </React.Fragment>
   )

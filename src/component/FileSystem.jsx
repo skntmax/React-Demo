@@ -1,27 +1,58 @@
-import React from 'react'
-
+import React ,{useState} from 'react'
 
 function FileSystem() {
-    let fs =[  {
-        files:
-         {f1: "file"},
-        folders:{fldr1:"folder1 "} ,
-        
-    }
-]
+   
+
+    const [dirs, setDirs] = useState([{
+       folder: {
+         file1:true ,
+         file2:true
+       } ,
+       file:true
+    } , {
+      folder: {
+        file1:true ,
+        file2:true
+      } ,
+         file:true
+      }   
+    , 
+  
+    {
+      folder: {
+        file1:true ,
+        file2:true
+      } ,
+      file:true
+   } 
+  
+   ,
+  
+   {
+    folder: {
+      file1:true ,
+      file2:true
+    } ,
+    file:true
+ } ]  ); 
+   
+
   return (
     <div>
-    {fs.map((ele)=>{
+     
+    {dirs.map((ele)=>{
         return ( 
              <React.Fragment>  
-              <div >
-                file system is still in progress
+              <div >  
+                {typeof(ele.folder)=='object'? "something" :"📁"+{ele}  }
                </div>
              
 
               </React.Fragment>
         )  
-    })}
+    }) }
+     
+    file system 
       </div>
   )
 }
