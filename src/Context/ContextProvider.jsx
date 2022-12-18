@@ -6,7 +6,8 @@ function ContextProvider({children}) {
     <context.Provider value="dafualt value " >
       {children} 
       </context.Provider>
-  )
+    )
 }
+
 
 export default ContextProvider

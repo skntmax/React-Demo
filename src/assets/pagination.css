@@ -1,0 +1,12 @@
+.pagination{
+ margin: 20px;
+ width: 20px;
+ height: 20px;
+ background-color: azure;
+  cursor: pointer;     
+  font-size: large; 
+}
+
+.p_div{
+     display: flex;
+}

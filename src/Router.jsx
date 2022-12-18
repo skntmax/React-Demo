@@ -8,7 +8,7 @@ import {
     RouterProvider,
     Route,
   } from "react-router-dom";
-   
+import Pagination from './Pagination/Pagination'   
 import Home from './component/Home';
 import Index from './store/Index';
 import Callback from './component/Callback';
@@ -52,8 +52,8 @@ export default  createBrowserRouter([
   },
 
   {
-    path: "/redux-thunk-blog-list",
-    element:  <Contacts />,  
+     path: "/redux-thunk-blog-list",
+     element:  <Contacts />,  
   },
 
   {
@@ -65,11 +65,16 @@ export default  createBrowserRouter([
     path: "/blog",
     element:  <Blog />,  
   },
+  {
+    path: "/pagination",
+    element: <Pagination />   ,  
+  },
+
    
 ]);
   
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-     "file-system"  ,"blog"
+     "file-system"  ,"blog" ,"pagination"
      ]
