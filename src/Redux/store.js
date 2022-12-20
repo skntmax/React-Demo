@@ -100,8 +100,6 @@ function contacts(state = contact_list , action ) {
  }
 
 
-
-
  function products ( state = { list:[] } ,  action  ) {
   debugger
   switch(action.type) {
@@ -113,10 +111,22 @@ function contacts(state = contact_list , action ) {
 }
 
 
+function users ( state = { list:[] } ,  action  ) {
+  debugger
+  switch(action.type) {
+   case "USER_DATA":
+      return { ...state , list:action.payload.data }
+      default:
+     return {...state}      
+  }
+}
+
+
+
 
   export let rootReducer = combineReducers( {
-    todoReducer , contacts ,blogList  ,blogList2 ,products 
-  })
+    todoReducer , contacts ,blogList  ,blogList2 ,products, users  
+     })
   
 
 export const store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk)) )

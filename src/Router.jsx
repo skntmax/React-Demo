@@ -3,6 +3,7 @@ import Main from './component/Main';
 import Todo from './component/Todo';
 import Clock from './component/Clock'
 import FileSystem from './component/FileSystem' 
+import Test from './../src/Test'
 import {
     createBrowserRouter,
     RouterProvider,
@@ -69,6 +70,11 @@ export default  createBrowserRouter([
     path: "/pagination",
     element: <Pagination />   ,  
   },
+   
+  {
+    path: "/hoc-class-component",
+    element: <Test />   ,  
+  },
 
    
 ]);
@@ -76,5 +82,5 @@ export default  createBrowserRouter([
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-     "file-system"  ,"blog" ,"pagination"
+     "file-system"  ,"blog" ,"pagination" , "hoc-class-component"
      ]

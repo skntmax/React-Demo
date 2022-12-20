@@ -6,11 +6,12 @@ import Button from 'react-bootstrap/Button';
 import './../assets/style.css'
 
  export default function Home() {
+   
   const navigate = useNavigate();
     return (
         <div className="text-center back" >
              <h1 style={{color:"white"}}>React-Store </h1>
-             <div style={{ display: "flex" }} className="main_div">
+             <div  className="main_div">
              { allRoutes && allRoutes.map((ele) => {
                return (
                  <div

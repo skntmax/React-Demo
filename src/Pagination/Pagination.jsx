@@ -63,7 +63,6 @@ function Pagination() {
           </div>
         )
       })}
-
         
     <div className="p_div">
     {[...new Array(Math.ceil(prd.list.length/5))].map((_,ind)=>{
