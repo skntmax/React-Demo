@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+
 import axios from 'axios'
 import Spinner from 'react-bootstrap/Spinner';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -81,7 +82,6 @@ function CreateBlog() {
                let formdata = new FormData()
                formdata.append('file', data.thumbnail)
                formdata.append('id', _id )
-                
                 axios.post(`${process.env.REACT_APP_BASE_URL}/user/image` , formdata ).then(res=>{
                  resolve(res)
                 }).catch(err=>{
@@ -103,9 +103,8 @@ function CreateBlog() {
        if(data[val] == ""  ) {
          alert("all fields are mendatory ") 
          return
-         }   
-      }
-      
+          }   
+       }
    save().then(res=>{
      toast(" Blog created ")
      saveRef.current.disabled=false
@@ -125,6 +124,9 @@ function CreateBlog() {
         </Button>
          
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)} >
+      <Modal.Header closeButton className="px-5">
+          <Modal.Title>Create Blog</Modal.Title>
+        </Modal.Header>
        <div style={{margin:"auto" , width:"70%"}}>
         <Modal.Body> 
         <Form>

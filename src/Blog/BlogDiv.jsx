@@ -24,6 +24,12 @@ function BlogDiv() {
 React.useEffect(() => {
        dispatch(blogStore())
 }, [])
+
+let image = {
+  width: "100%",
+  height: "100%" ,
+  objectFit: "cover"
+}
   
   return (
      <React.Fragment>
@@ -35,13 +41,11 @@ React.useEffect(() => {
            <div className="blog_div"  >
            <div style={{display:"flex",justifyContent:"space-between"}}>
            <FullScreenBlogModal type={"update"} data={ele}/> 
-
-             <h5 className="blog_heading" > {ele.title }  </h5>
-
+               <h5 className="blog_heading" > {ele.title }  </h5>
             <FullScreenBlogModal type={"show"} data={ele} />
         </div>
         <div className="blog_dialogue_box" onClick={e=> window.location.href = process.env.REACT_APP_BASE_URL+"/"+ele.image[1] } >
-         <img className="blog_model" src={`${ele.image[1]}`} />
+         <img className="blog_model" style={image} src={`${ele.image[1]}`} />
          </div>
           </div> 
         )

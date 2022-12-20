@@ -82,5 +82,5 @@ export default  createBrowserRouter([
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-     "file-system"  ,"blog" ,"pagination" , "hoc-class-component"
+       "file-system"  , "blog" , "pagination" , "hoc-class-component"
      ]
