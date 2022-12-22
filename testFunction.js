@@ -1,31 +1,18 @@
-let arr = [2,4,7,9,267,124,516552,452]
+let arr =[[2] ,[4] ,[2] ,5 , 1 ,[12] , [211]]
+ 
 
-function insert(position,arr) {
-      
-     for(let i=arr.length; i>=position-1 ; i--) {
-         arr[i+1] = arr[i]
+  let flatArray = (arr,d)=>{
+    
+    let res = []
+     while(d!=0) {
+      for(let i;i<arr.length ; i++) {
+          res.push(arr[i]) 
+       }
+       d--    
      }
-  arr.pop()    
-  arr[position]  = "value inserted at 6 "
-return arr  
-}
 
-console.log( insert(6,arr));
- 
+     return res 
+    
+  }
 
-
-
-let a = 1
-   a = 2  // let can be reassigned but can't be redeaclared 
-   var x =123
-    var x = 34  // var can be redeclare and resign ans have global scope 
-   const c = [2,3]  // can neither redecalre nor reassigned 
-     
-console.log('====================================');
-console.log("a",a);
-console.log('====================================');
-
-console.log('====================================');
-console.log("x" ,x);
-console.log('====================================');
- 
+  console.log(flatArray(arr,1));

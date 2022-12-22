@@ -26,9 +26,9 @@ function Blog() {
    backgroundSize: "100% 100%"
      }}> 
      
-    <Navbar bg="light" variant="light">
-    <Container>
-      <Navbar.Brand href="#home"><span onClick={e=> navigate('/')}> <img src={Goback} width={30} /> </span> techymaxx blog  </Navbar.Brand>
+    <Navbar bg="light" variant="light"  >
+     <Container>
+      <Navbar.Brand href="#home" ><span onClick={e=> navigate('/') }> <img src={Goback} width={30} /> </span> techymaxx blog  </Navbar.Brand>
       <Nav className="ml-auto">
         <Nav.Link href="#home">
             <CreateBlog />

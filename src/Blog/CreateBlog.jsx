@@ -7,13 +7,13 @@ import Spinner from 'react-bootstrap/Spinner';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Form from 'react-bootstrap/Form';
+
 import { useRef } from 'react';
+import CommonModal from './CommonModal';
 
 
 function CreateBlog() {
@@ -78,7 +78,7 @@ function CreateBlog() {
             const { _id } = result
             debugger 
            if(status==200) {
-    
+
                let formdata = new FormData()
                formdata.append('file', data.thumbnail)
                formdata.append('id', _id )
@@ -120,13 +120,23 @@ function CreateBlog() {
     <React.Fragment> 
      
         <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
-          Create Blog
+          Create Blog 
         </Button>
-         
+
+      
+          
+           <CommonModal title="Login/signup" />  
+          
+
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)} >
-      <Modal.Header closeButton className="px-5">
-          <Modal.Title>Create Blog</Modal.Title>
+       <Modal.Header closeButton className="px-5">
+      
+           <Modal.Title>
+              Create Blog
+             </Modal.Title>
+              
         </Modal.Header>
+         
        <div style={{margin:"auto" , width:"70%"}}>
         <Modal.Body> 
         <Form>

@@ -27,7 +27,7 @@ React.useEffect(() => {
 
 let image = {
   width: "100%",
-  height: "100%" ,
+  height: "300px" ,
   objectFit: "cover"
 }
   
@@ -44,8 +44,14 @@ let image = {
                <h5 className="blog_heading" > {ele.title }  </h5>
             <FullScreenBlogModal type={"show"} data={ele} />
         </div>
-        <div className="blog_dialogue_box" onClick={e=> window.location.href = process.env.REACT_APP_BASE_URL+"/"+ele.image[1] } >
+        <div className="blog_dialogue_box fullwrap" onClick={e=>{ 
+                 window.location.href = process.env.REACT_APP_BASE_URL+"/"+ele.image[1]}
+            }>
          <img className="blog_model" style={image} src={`${ele.image[1]}`} />
+         <div className="fullcap">
+          {parse(ele.disc)}
+          <br/>
+       </div>
          </div>
           </div> 
         )
