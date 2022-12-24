@@ -46,7 +46,8 @@ function onChangeHandler(e) {
 
             } 
             
-            Usernames( generateUsernames , 1000 )    
+            Usernames(generateUsernames , 1000 )
+                 
         }
       
       if(value=="")
@@ -131,10 +132,10 @@ function onChangeHandler(e) {
    onBlur={validate}
    />
 
-   <Form.Text className="text-muted">
-   {data.adminPassword.error?<span style={{color:"red"}}> Admin password is required </span>:""}
-   </Form.Text>
-  </Form.Group> :""
+   <Form.Text className="text-muted" >
+     {data.adminPassword.error?<span style={{color:"red"}}> Admin password is required </span>:""}
+     </Form.Text>
+    </Form.Group> :""
    }
       
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -142,7 +143,7 @@ function onChangeHandler(e) {
     </Form.Group>
      
     <div className="d-grid gap-2">
-    <Button variant="primary"  clasName="d-grid gap-2" type="submit" id="singup_user"   >
+    <Button variant="primary"  className="d-grid gap-2" type="submit" >
         {!signupUser?"Submit":<Spinner animation="border" size="sm" />}
     </Button>
   </div>

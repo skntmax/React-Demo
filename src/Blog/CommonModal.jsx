@@ -1,5 +1,5 @@
-import React, { PureComponent ,useState } from 'react'
-
+import React, { PureComponent ,useState ,useEffect } from 'react'
+import { validateUser } from '../api_actions/user_acitons';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Login from './Login';
@@ -8,7 +8,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import {  Paper } from "@material-ui/core";
 import Signup from './Signup';
-
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { loggedInUserData } from '../api_actions/auth_action_creator';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function MyVerticallyCenteredModal(props) {
 
@@ -57,19 +60,49 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function CommonModal(props) {
-     
+   let params = useParams()
+   let dispatch = useDispatch()
+    const [cnt, setCount] = useState(1);
+    
+    let userloggedData = useSelector(ele=> ele.loggedInUser ) 
+   useEffect(() => {
+      let username = params.username
+      
+       validateUser(username).then(res=>{
+           if(res.status==200) {
+              dispatch(loggedInUserData(res.result))
+           } 
+      }).catch(err=>{
+         alert(err)
+      })
+
+   }, [cnt]);
+
+   
   const [modalShow, setModalShow] = React.useState(false);
    
   return (
     <React.Fragment>
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-         {props.title}   
-      </Button>
+     
+    {Object.keys(userloggedData).length==0? <Button variant="primary" onClick={() => setModalShow(true)}>
+    {props.title}
+</Button> : <Dropdown>
+<Dropdown.Toggle variant="primary" id="dropdown-basic">
+🤷🏽‍♂️ {userloggedData.username}
+</Dropdown.Toggle>
+
+<Dropdown.Menu>
+  <Dropdown.Item  onClick={e=> {localStorage.removeItem('blog-user') ;window.location.reload() } } > Logout </Dropdown.Item>
+ 
+</Dropdown.Menu>
+</Dropdown>}
+     
 
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
+       
     </React.Fragment>
   );
 }

@@ -36,12 +36,13 @@ const { username , email ,password, adminPassword } = model
   }
 
 
-export  const userLogin = async (model,navigate)=>{
+export  const userLogin = async (model,setLoggedIn ,navigate )=>{
  debugger
    try{
    const {  email ,password  } = model
 
      if(isFormFilled(model)) { 
+            setLoggedIn(true)
             let loginModel = {email:email.value , password:password.value}
              let result = await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login` , loginModel ) 
         const { data } = result 
@@ -50,11 +51,11 @@ export  const userLogin = async (model,navigate)=>{
                if(data.status==200) {
                    alert(data.message)  
                    localStorage.setItem('blog-user' , data.result.token  )
-                   navigate('/blog')
+                   navigate(`/blog/${data.result.username}`)
                  }
                if(data.status==500) {
                    alert(data.message)
-                   
+                   setLoggedIn(false)
                }  
                 
        }  else{

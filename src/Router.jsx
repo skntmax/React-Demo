@@ -17,6 +17,7 @@ import HOC_comp from './component/HOC_comp';
 import TodoRedux from './component/TodoRedux';
 import Contacts from './component/Contacts';
 import Blog from './Blog/Blog'; 
+import UserBLog from './Blog/UserBLog';
 
 export default  createBrowserRouter([
   {
@@ -47,6 +48,7 @@ export default  createBrowserRouter([
     path: "/todo-redux",
     element:  <TodoRedux />,  
   },
+   
   {
     path: "/contact",
     element:  <Contacts />,  
@@ -66,6 +68,11 @@ export default  createBrowserRouter([
     path: "/blog",
     element:  <Blog />,  
   },
+  {
+    path: "/blog/:username",
+    element:  <UserBLog /> ,  
+  },
+
   {
     path: "/pagination",
     element: <Pagination />   ,  
