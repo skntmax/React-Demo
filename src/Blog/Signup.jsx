@@ -46,8 +46,7 @@ function onChangeHandler(e) {
 
             } 
             
-            Usernames(generateUsernames , 1000 ) 
-            
+            Usernames( generateUsernames , 1000 )    
         }
       
       if(value=="")

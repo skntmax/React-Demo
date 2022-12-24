@@ -1,9 +1,10 @@
 import React ,{useState} from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import { userLogin } from '../api_actions/SingupActions';
+import { useNavigate } from 'react-router-dom';
 function Login() {
-   
+   let navigate = useNavigate()
    const [data, setData] = useState({ 
      email:{error:false , value:"" , isRequired:false},
      password:{error:false , value:"" , isRequired:false}
@@ -26,11 +27,13 @@ function validate(e) {
        setData({...data ,  [name]:{...data[name] , error:false  } })
   }
 
-
+   
     return (
 
       <React.Fragment>
-      <Form>
+      <Form onSubmit={e=>{
+        debugger 
+        e.preventDefault();  userLogin(data )}} >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" 

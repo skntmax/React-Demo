@@ -16,7 +16,14 @@ import { useRef } from 'react';
 import CommonModal from './CommonModal';
 
 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+
 function CreateBlog() {
+   
      let saveRef = useRef()
     const [data,setData] = React.useState({
          title:"",
@@ -86,9 +93,8 @@ function CreateBlog() {
                  resolve(res)
                 }).catch(err=>{
                    reject(err)
-                  })
-             }
-              
+                   })
+              }   
        }).catch(err=>{
         reject(err)
        })
@@ -119,15 +125,13 @@ function CreateBlog() {
   return (
     <React.Fragment> 
      
+
         <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
           Create Blog 
         </Button>
-
-      
-          
+         
            <CommonModal title="Login/signup" />  
           
-
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)} >
        <Modal.Header closeButton className="px-5">
       

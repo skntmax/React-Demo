@@ -12,30 +12,38 @@ import { useDispatch } from 'react-redux';
 import back from  './../assets/images/back7.jpg'
 import { Suspense } from 'react';
 import parse from 'html-react-parser'; 
+
+
+
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+
 import CreateBlog from './CreateBlog'
 const BlogDiv = React.lazy(() => import("./BlogDiv"));
 
 function Blog() {
+   
     let navigate  = useNavigate()
   return (
     <React.Fragment>
-    
+
     <div style={{ backgroundImage:`url(${back})` , height:"100vh" ,
     height:"100vh" ,
     backgroundRepeat: "no-repeat",
    backgroundSize: "100% 100%"
-     }}> 
+     }} > 
      
-    <Navbar bg="light" variant="light"  >
+    <Navbar bg="light" variant="light">
      <Container>
-      <Navbar.Brand href="#home" ><span onClick={e=> navigate('/') }> <img src={Goback} width={30} /> </span> techymaxx blog  </Navbar.Brand>
-      <Nav className="ml-auto">
-        <Nav.Link href="#home">
-            <CreateBlog />
-        </Nav.Link>
-       </Nav>
-      </Container>
-    </Navbar>
+       <Navbar.Brand href="#home" >
+       <span onClick={e=> navigate('/') }> <img src={Goback} width={30} /> </span> techymaxx blog  </Navbar.Brand>
+       <Nav className="ml-auto">
+        <Nav.Link >
+            <CreateBlog />  
+            </Nav.Link>
+          </Nav>
+       </Container>
+      </Navbar>
  
      <Suspense fallback={<div style={{padding:"50%"}} > <h1 style={{color:"red"}}>  Loading...</h1> </div>}>
        <BlogDiv />
