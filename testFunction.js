@@ -1,18 +1,9 @@
-let arr =[[2] ,[4] ,[2] ,5 , 1 ,[12] , [211]]
- 
 
-  let flatArray = (arr,d)=>{
-    
-    let res = []
-     while(d!=0) {
-      for(let i;i<arr.length ; i++) {
-          res.push(arr[i]) 
-       }
-       d--    
-     }
+    var str = 'Tredence Beyond Possible';
+    // Output = ecnederT dnoyeB elbissoP
 
-     return res 
-    
-  }
-
-  console.log(flatArray(arr,1));
+     let val =  str.split(' ').map((ele)=>{
+      return ele.split('').reverse(ele).join('')
+ }).join(' ')  
+  
+     console.log(val);

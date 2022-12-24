@@ -3,11 +3,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 function Login() {
+   
    const [data, setData] = useState({ 
      email:{error:false , value:"" , isRequired:false},
      password:{error:false , value:"" , isRequired:false}
    })
     
+   
 function onChangeHandler(e) {
  let name = e.target.name 
  let value = e.target.value 
@@ -15,6 +17,7 @@ function onChangeHandler(e) {
 }
 
 function validate(e) {
+   
   let name = e.target.name 
   let value = e.target.value 
    if(value=="")
@@ -24,11 +27,9 @@ function validate(e) {
   }
 
 
-
     return (
 
-        <React.Fragment>
-         {console.log(data)}
+      <React.Fragment>
       <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>

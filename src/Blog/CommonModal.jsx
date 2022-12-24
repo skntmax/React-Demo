@@ -47,7 +47,6 @@ function MyVerticallyCenteredModal(props) {
          <Login /> : <Signup />  
         }
 
-         
 
         </div>
 
