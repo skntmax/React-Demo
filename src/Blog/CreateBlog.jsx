@@ -9,6 +9,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FileUploader } from "react-drag-drop-files";
 
 import Form from 'react-bootstrap/Form';
 
@@ -21,6 +22,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 function CreateBlog() {
@@ -32,29 +34,31 @@ function CreateBlog() {
          thumbnail:undefined ,
          show:false
     })
-  const values = [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down'];
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
-  let userData = useSelector(ele=> ele.loggedInUser)
+ let navigate= useNavigate()
 
+  let ud = useSelector(ele=>ele.loggedInUser )
+  let userData = useSelector(ele=> ele.loggedInUser)
+   
+
+  
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
     setShow(true);
   }
 
   function onchangeHandler(e) {
-  
+  debugger
   if(!e.target) {
     setData({
      ...data,disc:e 
      })
    }else{
   let {name ,value } = e.target
-  debugger
-   
+
   if(e.target.files) {
     let thumbnail =  e.target.files[0]
-      console.log("thumbnai " , thumbnail  );  
       setData({
          ...data,thumbnail:thumbnail
       })
@@ -67,10 +71,15 @@ function CreateBlog() {
     }
   }
 
+  const handleChange = (thumbnail) => {
+    setData({
+      ...data,thumbnail:thumbnail
+   })
+  };
+
   function onSubmit(e) {
     // e.preventDefault() 
-    debugger
-         
+ 
     function save(){ 
      
       saveRef.current.disabled=true
@@ -80,7 +89,10 @@ function CreateBlog() {
        </div>`
     
     return new Promise((resolve ,reject)=>{
-        axios.post(`${process.env.REACT_APP_BASE_URL}/user/post` , data ).then(res=>{
+       let model = {
+         ...data , userEmail:ud.email 
+       }
+        axios.post(`${process.env.REACT_APP_BASE_URL}/user/post` , model ).then(res=>{
           console.log("blog saved ", res );
           
           let {status , result }  = res.data
@@ -113,11 +125,13 @@ function CreateBlog() {
          return
           }   
        }
+        
    save().then(res=>{
      toast(" Blog created ")
      saveRef.current.disabled=false
      saveRef.current.innerHTML=` save `
-     window.location.reload()
+     setShow(false)
+     navigate('/blog')
    }).catch(err=>{
       console.log(err);     
     })
@@ -129,15 +143,13 @@ function CreateBlog() {
      
 
      {
-      Object.keys(userData).length==0?"":   <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
+      Object.keys(userData).length==0?"":  <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
       Create Blog 
- </Button>
+     </Button>
      }
-     
-
-           <CommonModal title="Login/signup" />  
+     <CommonModal title="Login/signup" />  
           
-      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)} >
+      <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false) } >
        <Modal.Header closeButton className="px-5">
       
            <Modal.Title>
@@ -148,12 +160,13 @@ function CreateBlog() {
          
        <div style={{margin:"auto" , width:"70%"}}>
         <Modal.Body> 
-        <Form>
+         
+        <Form   >
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label> Title </Form.Label>
         <Form.Control type="text" placeholder="Enter Title" name="title"  onChange={onchangeHandler} />
       </Form.Group>
-   
+
        
         <CKEditor
          
@@ -162,7 +175,7 @@ function CreateBlog() {
         height={"100px"}
         onReady={ editor => {
             // You can store the "editor" and use when it is needed.
-            console.log( 'Editor is ready to use!', editor );
+            console.log( ' Editor is ready to use! ', editor );
           }}
          
         onChange={ ( event, editor ) => {
@@ -182,15 +195,33 @@ function CreateBlog() {
     />
 
      
-    <Form.Group className="formBasicThumbnail">
+    <Form.Group className="formBasicThumbnail" >
+        
+       {
+        /*
         <Form.Label> Thumbnail </Form.Label>
-        <Form.Control type="file"  enctype="multipart/form-data"  placeholder="" name="file"  onChange={onchangeHandler} />
+        <Form.Control 
+          type="file"
+          enctype="multipart/form-data"
+          name="file"
+          required
+      onChange={onchangeHandler} /> */}
+
+      Thumbnail<FileUploader
+      multiple={false}
+      handleChange={handleChange}
+      name="file"
+      types={["JPEG", "PNG", "GIF"]}
+    />
+
+
+          
     </Form.Group>
    
     </Form>
 
   
-    <Button variant="primary" ref={saveRef}  onClick={onSubmit} className="my-2">
+    <Button variant="primary" ref={saveRef} onClick={onSubmit} className="my-2">
         save
     </Button>
 

@@ -24,14 +24,15 @@ const BlogDiv = React.lazy(() => import("./BlogDiv"));
 function Blog() {
    
     let navigate  = useNavigate()
-  return (
+  
+     return (
     <React.Fragment>
 
     <div style={{ backgroundImage:`url(${back})` , height:"100vh" ,
     height:"100vh" ,
     backgroundRepeat: "no-repeat",
    backgroundSize: "100% 100%"
-     }} > 
+   }} > 
      
     <Navbar bg="light" variant="light">
      <Container>

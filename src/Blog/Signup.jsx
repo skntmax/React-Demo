@@ -4,10 +4,11 @@ import Button from 'react-bootstrap/Button';
 import { createUser } from '../api_actions/SingupActions';
 import Spinner from 'react-bootstrap/Spinner';
 import './../assets/usernames.css'
+import { useNavigate } from 'react-router-dom';
 function Signup() {
  
 
-
+      let navigate = useNavigate()
     const [data, setData] = useState({ 
           username:{error:false , value:"" ,options:[], isRequired:false },
           email:{error:false , value:"" , isRequired:false},
@@ -58,14 +59,14 @@ function onChangeHandler(e) {
 
      
  function submit(e) {
-  e.preventDefault()
-  createUser(data,isAdmin ,setSignupUser)
+ 
+  createUser(data,isAdmin ,setSignupUser,navigate)
 
  }
     return (
     <React.Fragment>
 
-    <Form onSubmit={submit}>
+    <Form >
 
     <Form.Group className="mb-3" controlId="formBasicEmail" >  
     <Form.Label>Username</Form.Label>
@@ -143,8 +144,8 @@ function onChangeHandler(e) {
     </Form.Group>
      
     <div className="d-grid gap-2">
-    <Button variant="primary"  className="d-grid gap-2" type="submit" >
-        {!signupUser?"Submit":<Spinner animation="border" size="sm" />}
+    <Button variant="primary"  className="d-grid gap-2" onClick={submit} >
+        {!signupUser?"Submit":<Spinner style={{margin:"auto"}} animation="border" size="sm" />}
     </Button>
   </div>
 

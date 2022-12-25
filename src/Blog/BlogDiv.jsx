@@ -10,21 +10,31 @@ import {BiShowAlt} from 'react-icons/bi'
 import {FaAngleDoubleUp}  from 'react-icons/fa'
 import FullScreenBlogModal  from './FullScreenBlogModal';
 import { Link } from 'react-router-dom';
-import { blogStore } from '../Redux/BlogStore';
+import { blogStore } from '../Redux/BlogStore' ;
 
 import parse from 'html-react-parser'; 
 
 function BlogDiv() {
-    let dispatch = useDispatch()
+    // ---------------hooks ----------------
+  let dispatch = useDispatch()
     let navigate = useNavigate()
-
   const [open, setOpen] = useState(false);
-  let all_blogs = useSelector(ele=> ele.blogList2)
+    // ---------------hooks ----------------
+
+ 
+ 
+    // ------------redux data ------------------
+    let all_blogs = useSelector(ele=> ele.blogList2)
+    let ud = useSelector(ele=>ele.loggedInUser )
+    // ------------redux data ------------------
    
+
 React.useEffect(() => {
-       dispatch(blogStore())
+      let _id = Object.keys(ud).length==0?"":ud._id 
+       dispatch(blogStore(_id))
 }, [])
 
+ 
 let image = {
   width: "100%",
   height: "300px" ,
@@ -38,9 +48,9 @@ let image = {
          {
            all_blogs.list.map((ele)=>{
                 return (      
-           <div className="blog_div"  >
+           <div className="blog_div" key={ele._id} >
            <div style={{display:"flex",justifyContent:"space-between"}}>
-           <FullScreenBlogModal type={"update"} data={ele}/> 
+            <FullScreenBlogModal type={"update"} data={ele}/> 
                <h5 className="blog_heading" > {ele.title }  </h5>
             <FullScreenBlogModal type={"show"} data={ele} />
         </div>

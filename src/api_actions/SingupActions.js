@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const createUser = (model ,isAdmin ,setSignupUser)=>{
+export const createUser = (model ,isAdmin ,setSignupUser,navigate)=>{
        
 const { username , email ,password, adminPassword } = model
 
@@ -16,7 +16,7 @@ const { username , email ,password, adminPassword } = model
                         if(data.status==200) {
                            setSignupUser(false)
                                alert(data.message)
-                               window.location.reload();
+                               navigate('/blog') 
                         }
                 }).catch(err=>{
                    console.log(err);   

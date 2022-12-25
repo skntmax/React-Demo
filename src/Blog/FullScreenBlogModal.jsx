@@ -35,6 +35,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function FullScreenBlogModal(props) {
   let {type ,data} =props
+  
   const [open, setOpen] = React.useState(false);
    const [disc , setDisc] = React.useState(data.disc);
    let ud =  useSelector(ele=>ele.loggedInUser )
@@ -111,7 +112,7 @@ export default function FullScreenBlogModal(props) {
       <div>
         
       {
-        Object.keys(ud).length!=0?   <Button  onClick={handleClickOpen}>
+        Object.keys(ud).length!=0 && ud._id==data.blogOwner? <Button  onClick={handleClickOpen}>
         {type=="update"?<AiOutlineEdit  size={20}/>:""} 
         </Button>:""
       }
