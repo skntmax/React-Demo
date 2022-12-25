@@ -25,6 +25,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 
+
+
 function CreateBlog() {
    
      let saveRef = useRef()
@@ -142,11 +144,16 @@ function CreateBlog() {
     <React.Fragment> 
      
 
+
+
+
+
      {
       Object.keys(userData).length==0?"":  <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
       Create Blog 
      </Button>
      }
+      
      <CommonModal title="Login/signup" />  
           
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false) } >
