@@ -128,6 +128,8 @@ function loggedInUser ( state = { } ,  action  ) {
   switch(action.type) {
    case "GET_USER_DATA":
       return { ...state , ...action.payload.data }
+    case "LOGOUT_USER":
+      return {  ...action.payload.data }
       default:
      return {...state}      
   }

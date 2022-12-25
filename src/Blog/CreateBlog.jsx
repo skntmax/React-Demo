@@ -20,6 +20,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSelector } from 'react-redux';
 
 
 function CreateBlog() {
@@ -34,6 +35,7 @@ function CreateBlog() {
   const values = [true, 'sm-down', 'md-down', 'lg-down', 'xl-down', 'xxl-down'];
   const [fullscreen, setFullscreen] = useState(true);
   const [show, setShow] = useState(false);
+  let userData = useSelector(ele=> ele.loggedInUser)
 
   function handleShow(breakpoint) {
     setFullscreen(breakpoint);
@@ -126,10 +128,13 @@ function CreateBlog() {
     <React.Fragment> 
      
 
-        <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
-          Create Blog 
-        </Button>
-         
+     {
+      Object.keys(userData).length==0?"":   <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
+      Create Blog 
+ </Button>
+     }
+     
+
            <CommonModal title="Login/signup" />  
           
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)} >

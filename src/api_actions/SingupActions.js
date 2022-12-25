@@ -49,7 +49,6 @@ export  const userLogin = async (model,setLoggedIn ,navigate )=>{
         console.log(data);
          
                if(data.status==200) {
-                   alert(data.message)  
                    localStorage.setItem('blog-user' , data.result.token  )
                    navigate(`/blog/${data.result.username}`)
                  }

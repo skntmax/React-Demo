@@ -8,18 +8,17 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import {  Paper } from "@material-ui/core";
 import Signup from './Signup';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loggedInUserData } from '../api_actions/auth_action_creator';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 function MyVerticallyCenteredModal(props) {
-
   const [textValue, setTextValue] = useState("");
   const [status, setStatus] = useState({
      login:true,
   });
-
+ 
   const onTextChange = (e) => setTextValue(e.target.value);
   const handleSubmit = () => console.log(textValue);
   const handleReset = () => setTextValue("");
@@ -63,6 +62,7 @@ function CommonModal(props) {
    let params = useParams()
    let dispatch = useDispatch()
     const [cnt, setCount] = useState(1);
+   let navigate = useNavigate()
     
     let userloggedData = useSelector(ele=> ele.loggedInUser ) 
    useEffect(() => {
@@ -92,7 +92,16 @@ function CommonModal(props) {
 </Dropdown.Toggle>
 
 <Dropdown.Menu>
-  <Dropdown.Item  onClick={e=> {localStorage.removeItem('blog-user') ;window.location.reload() } } > Logout </Dropdown.Item>
+  <Dropdown.Item  onClick={e=> {
+    localStorage.removeItem('blog-user') 
+    dispatch({
+       type:"LOGOUT_USER",
+       payload:{
+        data:{}
+       }
+    })
+    navigate('/blog')
+  } } > Logout </Dropdown.Item>
  
 </Dropdown.Menu>
 </Dropdown>}

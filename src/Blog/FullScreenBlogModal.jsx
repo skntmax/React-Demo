@@ -27,6 +27,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
  
 const Transition = React.forwardRef(function Transition(props, ref) {  
   return <Slide direction="up" ref={ref} {...props} />;
@@ -36,7 +37,7 @@ export default function FullScreenBlogModal(props) {
   let {type ,data} =props
   const [open, setOpen] = React.useState(false);
    const [disc , setDisc] = React.useState(data.disc);
-  
+   let ud =  useSelector(ele=>ele.loggedInUser )
 
   function updateBlog(id,discription) {
     let model = {
@@ -108,9 +109,13 @@ export default function FullScreenBlogModal(props) {
     return (
         
       <div>
-        <Button  onClick={handleClickOpen}>
+        
+      {
+        Object.keys(ud).length!=0?   <Button  onClick={handleClickOpen}>
         {type=="update"?<AiOutlineEdit  size={20}/>:""} 
-        </Button>
+        </Button>:""
+      }
+     
         
         <Dialog
           fullScreen
