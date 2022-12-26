@@ -94,7 +94,6 @@ export default function FullScreenBlogModal(props) {
              
             </Toolbar>
            
-
           </AppBar>
           
           <div style={{  width:"80%" , margin:"auto"}}>

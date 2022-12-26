@@ -43,12 +43,11 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Body>
          
        <div className='header_auth'>
-       
+        
         {
          status.login?
          <Login /> : <Signup />  
         }
-
 
         </div>
 

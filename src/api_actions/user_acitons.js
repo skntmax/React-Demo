@@ -1,4 +1,5 @@
 import axios from "axios"
+
 export const validateUser = async (username) =>{
    try{
      let res = await axios.get(`${process.env.REACT_APP_BASE_URL}/auth/login/${username }`, getAuthHeader() )
