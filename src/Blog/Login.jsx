@@ -1,10 +1,11 @@
-import React ,{useState} from 'react'
+import React ,{useState ,useRef} from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { userLogin } from '../api_actions/SingupActions';
 import { useNavigate } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 function Login() {
+  let loginButton = useRef()
    let navigate = useNavigate()
    const [data, setData] = useState({ 
      email:{error:false , value:"" , isRequired:false},
@@ -31,8 +32,10 @@ function validate(e) {
   }
  
 
+
   function Loginuser(e) {
-      userLogin(data , setLoggedIn ,navigate) 
+    document.getElementById('login_button').disabled=true
+     userLogin(data , setLoggedIn ,navigate) 
        
   }
 
@@ -75,7 +78,7 @@ function validate(e) {
       </Form.Group>
      
       <div className="d-grid gap-2">
-    <Button variant="primary"  className="d-grid gap-2 text-center" onClick={Loginuser}   >
+    <Button variant="primary" id="login_button"  className="d-grid gap-2 text-center" onClick={Loginuser}   >
         {!loggedIn?"Login":<Spinner style={{margin:"auto"}} animation="border" size="sm" />} 
     </Button>
   </div>

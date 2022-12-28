@@ -59,7 +59,7 @@ function onChangeHandler(e) {
 
      
  function submit(e) {
- 
+  document.getElementById('signup_button').disabled=true
   createUser(data,isAdmin ,setSignupUser,navigate)
 
  }
@@ -144,7 +144,7 @@ function onChangeHandler(e) {
     </Form.Group>
      
     <div className="d-grid gap-2">
-    <Button variant="primary"  className="d-grid gap-2" onClick={submit} >
+    <Button variant="primary"  className="d-grid gap-2" id="signup_button" onClick={submit} >
         {!signupUser?"Submit":<Spinner style={{margin:"auto"}} animation="border" size="sm" />}
     </Button>
   </div>

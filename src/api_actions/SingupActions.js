@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const createUser = (model ,isAdmin ,setSignupUser,navigate)=>{
-       
 const { username , email ,password, adminPassword } = model
 
           let bodyModel =  {username:username.value , email:email.value ,password : password.value}
@@ -11,11 +10,15 @@ const { username , email ,password, adminPassword } = model
             setSignupUser(true)
                 axios.post(`${process.env.REACT_APP_BASE_URL}/auth/signup` , bodyModel ).then((res)=>{
                         let {data} = res
-                        if(data.status==500) 
+                        if(data.status==500) {
+                     document.getElementById('signup_button').disabled=false
+                      alert(data.message) ; setSignupUser(false)
+                               }
                                alert(data.message) ; setSignupUser(false)
                         if(data.status==200) {
                            setSignupUser(false)
                                alert(data.message)
+                      document.getElementById('signup_button').disabled=false
                                navigate('/blog') 
                         }
                 }).catch(err=>{
@@ -55,6 +58,8 @@ export  const userLogin = async (model,setLoggedIn ,navigate )=>{
                if(data.status==500) {
                    alert(data.message)
                    setLoggedIn(false)
+                document.getElementById('login_button').disabled=false
+
                }  
                 
        }  else{

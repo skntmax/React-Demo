@@ -32,7 +32,7 @@ function Geolocation() {
         alignItems:"center"
     }}> 
     
-    <ListGroup defaultActiveKey="#link1">
+    <ListGroup defaultActiveKey="#link1" >
     
      {data.length>0 && data.map((ele)=>{
          return  (
