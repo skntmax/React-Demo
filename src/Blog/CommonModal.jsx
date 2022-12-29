@@ -91,7 +91,12 @@ function CommonModal(props) {
 </Dropdown.Toggle>
 
 <Dropdown.Menu>
-  <Dropdown.Item  onClick={e=> {
+ 
+<Dropdown.Item  onClick={e=> navigate(`/my-blogs/${userloggedData.username}`)}  > My blogs  </Dropdown.Item>
+<Dropdown.Item   > Setting  </Dropdown.Item>
+<Dropdown.Item   > Preferences  </Dropdown.Item>
+
+  <Dropdown.Item   onClick={e=> {
     localStorage.removeItem('blog-user') 
     dispatch({
        type:"LOGOUT_USER",
@@ -100,8 +105,9 @@ function CommonModal(props) {
        }
     })
     navigate('/blog')
-  } } > Logout </Dropdown.Item>
- 
+  } } className="text-danger" > Logout </Dropdown.Item>
+
+
 </Dropdown.Menu>
 </Dropdown>}
      

@@ -19,6 +19,7 @@ import Contacts from './component/Contacts';
 import Blog from './Blog/Blog'; 
 import UserBLog from './Blog/UserBLog';
 import Geolocation from './Geolocation';
+import MyBlogs from './Blog/user_blogs/MyBlogs';
 
 export default  createBrowserRouter([
   {
@@ -72,6 +73,11 @@ export default  createBrowserRouter([
   {
     path: "/blog/:username",
     element:  <UserBLog /> ,  
+  },
+
+  {
+    path: "/my-blogs/:username",
+    element:  <MyBlogs /> ,  
   },
 
   {

@@ -13,7 +13,6 @@ import back from  './../assets/images/back7.jpg'
 import { Suspense } from 'react';
 import parse from 'html-react-parser'; 
 
-
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
@@ -24,9 +23,11 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 import CreateBlog from './CreateBlog'
+import SearchBlogs from './user_blogs/SearchBlogs';
 const BlogDiv = React.lazy(() => import("./BlogDiv"));
 
-function Blog() {
+function Blog(props) {
+  let {type} = props
    
     let navigate  = useNavigate()
   
@@ -65,23 +66,18 @@ function Blog() {
           </NavDropdown>
        
         </Nav>
-        <CreateBlog /> 
+        
+            <CreateBlog /> 
+         
       </Navbar.Collapse>
     </Container>
   </Navbar>
-
-
-   
-   
- 
      <Suspense fallback={<div style={{padding:"50%"}} > <h1 style={{color:"red"}}>  Loading...</h1> </div>}>
-       <BlogDiv />
+       
+         {type=="USER_BLOG" ? <SearchBlogs />  : <BlogDiv />} 
+     
      </Suspense>
-
      </div>
-
-
-    
     </React.Fragment>
   )
 }

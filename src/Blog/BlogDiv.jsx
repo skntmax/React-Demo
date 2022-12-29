@@ -47,18 +47,19 @@ let image = {
       <div className="main_blog_div1" >
          {
            all_blogs.list.map((ele)=>{
-                return (      
+                return (        
            <div className="blog_div" key={ele._id} >
            <div style={{display:"flex",justifyContent:"space-between"}}>
             <FullScreenBlogModal type={"update"} data={ele}/> 
                <h5 className="blog_heading" > {ele.title }  </h5>
             <FullScreenBlogModal type={"show"} data={ele} />
         </div>
-        <div className="blog_dialogue_box fullwrap" onClick={e=>{ 
+        <div className="blog_dialogue_box fullwrap" onClick={e=>{
+
                  window.location.href = process.env.REACT_APP_BASE_URL+"/"+ele.image[1]}
             }>
          <img className="blog_model" style={image} src={`${ele.image[1]}`} />
-         <div className="fullcap">
+         <div className="fullcap" >
           {parse(ele.disc)}
           <br/>
        </div>

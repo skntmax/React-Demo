@@ -137,10 +137,22 @@ function loggedInUser ( state = { } ,  action  ) {
 
 
 
+function userBlogs ( state = { list:[] } ,  action  ) {
+  debugger
+  switch(action.type) {
+   case "USER_BLOGS":
+      return { ...state , list: action.payload.data }
+     default:
+      return {...state}      
+  }
+}
+
+
+
 
 
   export let rootReducer = combineReducers( {
-    todoReducer , contacts ,blogList  ,blogList2 ,products, users ,loggedInUser  
+    todoReducer , contacts ,blogList  ,blogList2 ,products, users ,loggedInUser ,userBlogs  
      })
   
 
