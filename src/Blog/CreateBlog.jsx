@@ -153,7 +153,6 @@ function CreateBlog() {
       Create Blog 
      </Button>
      }
-      
      <CommonModal title="Login/signup" />  
           
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false) } >

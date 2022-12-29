@@ -73,9 +73,7 @@ function Blog(props) {
     </Container>
   </Navbar>
      <Suspense fallback={<div style={{padding:"50%"}} > <h1 style={{color:"red"}}>  Loading...</h1> </div>}>
-       
-         {type=="USER_BLOG" ? <SearchBlogs />  : <BlogDiv />} 
-     
+         {type=="USER_BLOG" ? <SearchBlogs />   : <BlogDiv />} 
      </Suspense>
      </div>
     </React.Fragment>

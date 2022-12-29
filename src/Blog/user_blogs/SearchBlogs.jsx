@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { getUserBlogsLst } from '../../api_actions/get_user_blogs';
 import Card from 'react-bootstrap/Card';
 import { useParams } from 'react-router-dom';
-import './../../assets/search.scss'
+// import './../../assets/search.scss'
 import parse from 'html-react-parser'; 
 
  function SearchBlogs() {
@@ -14,10 +14,10 @@ import parse from 'html-react-parser';
        const [allBlogs, setAllBlogs] = useState([])
        const ud =useSelector(ele=> ele.loggedInUser )
        const userBlogs =useSelector(ele=> ele.userBlogs.list )
-       
+         
         
      useEffect(() => {
-          
+
               getUserBlogsLst(params.username).then(res=>{
                  if(res.status==200) {
                   setAllBlogs(res.result)
@@ -30,9 +30,7 @@ import parse from 'html-react-parser';
                navigate('/blog')
           })
            
-            
-
-    }, []);
+    }, [] );
 
    let  imgFit = {
         width: "80%",

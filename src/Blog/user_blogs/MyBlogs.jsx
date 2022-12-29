@@ -5,7 +5,7 @@ function MyBlogs() {
   
   return (
     <div>
-     <Blog  type={"USER_BLOG"} />
+     <Blog  type={"USER_BLOG"}  />
     </div>
   )
 }
