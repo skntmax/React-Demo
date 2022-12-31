@@ -11,7 +11,8 @@ import {FaAngleDoubleUp}  from 'react-icons/fa'
 import FullScreenBlogModal  from './FullScreenBlogModal';
 import { Link } from 'react-router-dom';
 import { blogStore } from '../Redux/BlogStore' ;
-
+import Alert from 'react-bootstrap/Alert';
+import { getFullDate, getTime } from '../utils';
 import parse from 'html-react-parser'; 
 
 function BlogDiv() {
@@ -63,11 +64,17 @@ let image = {
           {parse(ele.disc)}
           <br/>
        </div>
+       <Alert  variant='light' style={{width:"100%" , height:'50px'  }} >
+          <td style={{margin:"5px" } } > {ele.createdOn? <b> {`created on:${ getFullDate(ele.createdOn)}  ` }</b>:""} </td>  
+          <td style={{}}> {getTime(ele.createdOn) }</td>  
+          <td style={{ }}> 3</td>  
+     </Alert>
          </div>
           </div> 
         )
            })
          }
+      
          </div>
 
      </React.Fragment>
