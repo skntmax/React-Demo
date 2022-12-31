@@ -44,7 +44,7 @@ function Blog(props) {
     <Navbar bg="light" expand="lg">
     <Container fluid>
       <Navbar.Brand >
-      <span onClick={e=> navigate('/') }> <img src={Goback} width={30} /> </span> techymaxx blog  
+      <span onClick={e=> navigate(-1) }  > <img src={Goback} width={30} /> </span> techymaxx blog  
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">

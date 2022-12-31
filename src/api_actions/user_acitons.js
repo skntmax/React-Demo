@@ -7,8 +7,7 @@ export const validateUser = async (username) =>{
        return data
    }catch(err){ 
     return err
-   }
-
+    }
 }
 
 

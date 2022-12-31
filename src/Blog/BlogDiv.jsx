@@ -66,8 +66,8 @@ let image = {
        </div>
        <Alert  variant='light' style={{width:"100%" , height:'50px'  }} >
           <td style={{margin:"5px" } } > {ele.createdOn? <b> {`created on:${ getFullDate(ele.createdOn)}  ` }</b>:""} </td>  
-          <td style={{}}> {getTime(ele.createdOn) }</td>  
-          <td style={{ }}> 3</td>  
+          <td > {getTime(ele.createdOn) }</td>  
+         
      </Alert>
          </div>
           </div> 

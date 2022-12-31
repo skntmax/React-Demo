@@ -36,6 +36,7 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
+    "sweetalert2": "^11.6.16",
     "web-vitals": "^2.1.4"
   },
   "reactSnap": {
@@ -75,6 +76,7 @@
     "@babel/register": "^7.18.9",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "ignore-styles": "^5.0.1"
+    "ignore-styles": "^5.0.1",
+    "sass": "^1.57.1"
   }
 }
