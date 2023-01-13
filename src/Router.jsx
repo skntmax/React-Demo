@@ -22,6 +22,7 @@ import Geolocation from './Geolocation';
 import MyBlogs from './Blog/user_blogs/MyBlogs';
 import constat from './constat';
 import ShowBlogs from './Blog/user_blogs/ShowBlogs';
+import ShowByTitle from './Blog/user_blogs/ShowByTitle';
 export default  createBrowserRouter([
   {
     path: "/",
@@ -79,14 +80,18 @@ export default  createBrowserRouter([
   {
     path: constat.user_show,
     element:  <ShowBlogs /> ,  
-  },
-
+  } ,
 
   {
     path: "/my-blogs/:username",
     element:  <MyBlogs /> ,  
   },
 
+  {
+    path: constat.show_by_title,
+    element:  <ShowByTitle /> ,  
+  },
+   
   {
     path: "/pagination",
     element: <Pagination />   ,  

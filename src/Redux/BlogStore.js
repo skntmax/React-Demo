@@ -1,5 +1,6 @@
 import axios from 'axios'
-  function blogStore(){
+  
+function blogStore(){
    
      return async function(dispatch ,state)  {
         let blog_list = await axios.get(`${process.env.REACT_APP_BASE_URL}/user/get-blogs`)

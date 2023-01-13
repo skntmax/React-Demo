@@ -36,7 +36,7 @@ function SearchBlogs() {
          
               getUserBlogsLst(params.username).then(res=>{
                  if(res.status==200) {
-                  setAllBlogs(res.result)
+                    setAllBlogs(res.result)
                  } 
                  else if(res.status==500)
                         navigate('/blog')
@@ -46,7 +46,7 @@ function SearchBlogs() {
                navigate('/blog')
           })
            
-    }, [] );
+    }, [allBlogs] );
 
 
     function deleteBlog(id) {
@@ -63,12 +63,13 @@ function SearchBlogs() {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
            
-          deleteBlogById(id).then(res=>{
+          deleteBlogById(id).then(async (res)=>{
             if(res.status=200) {
              Swal.fire('deleted!', '', 'success') 
              setAction({
               ...action ,delete:{...action.delete, disabled:false }
-            })             
+            })
+             window.location.reload() 
             }
 
          }).catch(err=>{
@@ -85,8 +86,7 @@ function SearchBlogs() {
       })
 
     
-    
-      
+
     }
      
 
@@ -109,7 +109,7 @@ function SearchBlogs() {
   
 <div style={{display:'flex',height:"20vh" ,width:"100vw" ,flexWrap:"wrap" ,margin:"0px",padding:"0px",boxSizing:"border-box"}}>
      
-{ Object.keys(userBlogs).length!=0?userBlogs:allBlogs.map((ele)=>{
+{ allBlogs.map((ele)=>{
      return(
         <Card style={{ width: '25rem' ,margin:"4px" , cursor:"pointer" }} >
           <span style={{margin: "auto" , width:"90%" ,justifyContent:"center" }} >   
@@ -117,6 +117,7 @@ function SearchBlogs() {
           <Link to={ constant.user_show.replace(':username/:id',ud.username+"/"+ele._id ) } > <Button style={{width: "30%" }} variant="outline-secondary"> <ImDisplay /> </Button> </Link> {' '}      
           <Button style={{width: "30%" }} variant="outline-danger" disabled={action.delete.disabled} onClick={e=>deleteBlog(ele._id)}>   {!(action.delete.disabled  && action.delete.id==ele._id)?<MdDelete />  : <Spinner size='sm'/> }    </Button>{' '}           
           </span>  
+           <Link to={ constant.user_show.replace(':username/:id',ud.username+"/"+ele._id ) } style={{textDecoration:"none" , color:"black" ,fontStyle:"inherit" }} >  
          <Card.Body>
           <Card.Title>{ele.title}</Card.Title>
           <Card.Text className="blog_heading">
@@ -126,7 +127,8 @@ function SearchBlogs() {
 
           <img style={imgFit} src={ele.image[1]} />
         </Card.Body>
-      </Card>
+        </Link>
+        </Card>
    
      )
 })}

@@ -7,21 +7,24 @@ import {
 import router from './Router'
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
-import { store } from './Redux/store';
+import { store ,persistor } from './Redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+
+
 function App() {
 
-  useEffect(()=>{
-  // console.log(" parent component "); 
- } )  
-   
    
   return (  
      <Provider store={store}>
+     <PersistGate persistor={persistor}>
+      
       <HelmetProvider>
       <div className="App" id="back" >
       <RouterProvider router={router} />
       </div>
-    </HelmetProvider>
+     </HelmetProvider>
+ 
+      </PersistGate>
       </Provider>
    
     

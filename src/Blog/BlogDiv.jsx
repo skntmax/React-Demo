@@ -14,6 +14,10 @@ import { blogStore } from '../Redux/BlogStore' ;
 import Alert from 'react-bootstrap/Alert';
 import { getFullDate, getTime } from '../utils';
 import parse from 'html-react-parser'; 
+import constant from '../constat';
+
+
+
 
 function BlogDiv() {
     // ---------------hooks ----------------
@@ -48,17 +52,18 @@ let image = {
       <div className="main_blog_div1" >
          {
            all_blogs.list.map((ele)=>{
-                return (        
+                return (
+                       
            <div className="blog_div" key={ele._id} >
            <div style={{display:"flex",justifyContent:"space-between"}}>
             <FullScreenBlogModal type={"update"} data={ele}/> 
-               <h5 className="blog_heading" > {ele.title }  </h5>
+                 <h5 className="blog_heading" > {ele.title }  </h5>
             <FullScreenBlogModal type={"show"} data={ele} />
         </div>
-        <div className="blog_dialogue_box fullwrap" onClick={e=>{
 
-                 window.location.href = process.env.REACT_APP_BASE_URL+"/"+ele.image[1]}
-            }>
+        <Link to={ constant.show_by_title.replace(':title',ele.title ) } >      
+        <div className="blog_dialogue_box fullwrap"  >
+            
          <img className="blog_model" style={image} src={`${ele.image[1]}`} />
          <div className="fullcap" >
           {parse(ele.disc)}
@@ -67,9 +72,10 @@ let image = {
        <Alert  variant='light' style={{width:"100%" , height:'50px'  }} >
           <td style={{margin:"5px" } } > {ele.createdOn? <b> {`created on:${ getFullDate(ele.createdOn)}  ` }</b>:""} </td>  
           <td > {getTime(ele.createdOn) }</td>  
-         
      </Alert>
          </div>
+
+         </Link>
           </div> 
         )
            })

@@ -3,6 +3,20 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 import { combineReducers } from 'redux'
 import  thunk from 'redux-thunk'
 
+
+
+// ------------------ to make redux persist ------------
+import {persistReducer , persistStore} from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+ 
+// ------------------ to make redux persist ------------
+const persistConfig = {
+  key:'persist-store' ,
+  storage
+}
+
+
+
 let todos =  {lst: ["sknt max sample" , ]}
 let contact_list = { 
   list:[{
@@ -148,12 +162,7 @@ function userBlogs ( state = { list:[] } ,  action  ) {
 }
 
 
-
-
-
-  export let rootReducer = combineReducers( {
-    todoReducer , contacts ,blogList  ,blogList2 ,products, users ,loggedInUser ,userBlogs  
-     })
-  
-
-export const store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk)) )
+export let rootReducer =  combineReducers(  { todoReducer , contacts , blogList  ,blogList2 ,products, users ,loggedInUser ,userBlogs })  
+let persistedRootReducer = persistReducer(persistConfig, rootReducer)
+export const store = createStore( persistedRootReducer, composeWithDevTools(applyMiddleware(thunk)) )
+export const persistor = persistStore(store) 

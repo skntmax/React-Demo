@@ -1,0 +1,16 @@
+* {
+     margin: 0px;
+     padding:0px ;
+     box-sizing: border-box;
+}
+ 
+.show_blogs {
+ 
+     height: 100vh;
+     width: 100%;
+}
+
+.blog_back {
+     background-color: azure;
+     height: auto;    
+}
