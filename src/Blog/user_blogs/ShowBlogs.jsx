@@ -20,6 +20,12 @@ import Form from 'react-bootstrap/Form';
 
 
 function ShowBlogs() {
+
+
+  useEffect(()=>{
+     
+
+  } ,[])
     
 
     let navigate  = useNavigate()

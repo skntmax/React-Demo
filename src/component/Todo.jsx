@@ -1,11 +1,14 @@
 import React, { useState } from "react"
+import { Helmet } from "react-helmet-async"
+import { useParams } from "react-router-dom"
 import './../assets/style.css'
+ 
 export default function Todo() {
-      
+
   const [prdt ,setProduct]  = useState('')
   const [list ,setList]  = useState([])
   const [edit ,editId]  = useState(undefined)
-  const [editedValue ,setEditValue]  = useState("")
+  const [ editedValue  , setEditValue ]  = useState("") 
 
    const editItem =( item, editIndex , e )=>{
     if(edit==undefined) {
@@ -35,18 +38,27 @@ export default function Todo() {
      }
    
     React.useEffect((item) => {
-
       if(localStorage.getItem('item')) {
            setList(JSON.parse(localStorage.getItem('item')))
         }
-    
-           
+
     }, []) ;
 
      
     return (
          <React.Fragment>
-          <div className="main_div">
+          <Helmet>
+           <title>  Todo list titme  </title>
+            <meta charset="UTF-8" />
+             
+               <meta name="description" content="Free Web tutorials" />
+               <meta name="keywords" content="HTML, CSS, JavaScript" />
+               <meta name="author" content="John Doe"/>
+               <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+          </Helmet> 
+         
+         <div className="main_div">
           
 
          

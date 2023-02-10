@@ -61,7 +61,7 @@ let image = {
             <FullScreenBlogModal type={"show"} data={ele} />
         </div>
 
-        <Link to={ constant.show_by_title.replace(':title',ele.title ) } >      
+        <Link to={constant.show_by_title.replace(':title',ele.title ) } >      
         <div className="blog_dialogue_box fullwrap"  >
             
          <img className="blog_model" style={image} src={`${ele.image[1]}`} />

@@ -6,6 +6,7 @@ import  thunk from 'redux-thunk'
 
 
 // ------------------ to make redux persist ------------
+ 
 import {persistReducer , persistStore} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
  
@@ -15,8 +16,7 @@ const persistConfig = {
   storage
 }
 
-
-
+ 
 let todos =  {lst: ["sknt max sample" , ]}
 let contact_list = { 
   list:[{
@@ -153,12 +153,12 @@ function loggedInUser ( state = { } ,  action  ) {
 
 function userBlogs ( state = { list:[] } ,  action  ) {
   debugger
-  switch(action.type) {
+  switch( action.type ) {
    case "USER_BLOGS":
       return { ...state , list: action.payload.data }
      default:
       return {...state}      
-  }
+    }
 }
 
 

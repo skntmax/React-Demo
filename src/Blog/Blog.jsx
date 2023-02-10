@@ -16,9 +16,6 @@ import parse from 'html-react-parser';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-
-
-
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
@@ -27,6 +24,8 @@ import SearchBlogs from './user_blogs/SearchBlogs';
 const BlogDiv = React.lazy(() => import("./BlogDiv"));
 
 function Blog(props) {
+
+
   let {type} = props
    
     let navigate  = useNavigate()
@@ -64,10 +63,8 @@ function Blog(props) {
               Something else here
             </NavDropdown.Item>
           </NavDropdown>
-       
-        </Nav>
-        
-            <CreateBlog /> 
+          </Nav>
+             <CreateBlog /> 
          
       </Navbar.Collapse>
     </Container>

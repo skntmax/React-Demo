@@ -11,7 +11,6 @@ export const validateUser = async (username) =>{
 }
 
 
-
 export const getAuthHeader = () => {
     const token = localStorage.getItem('blog-user');
     const header = {
