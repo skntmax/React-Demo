@@ -1,0 +1,19 @@
+.login_page{
+     padding:  0px 500px 0px 500px ;
+     margin: 300px 0px 0px 0px ;
+     
+}
+
+.hover_button{
+cursor: pointer;
+}
+
+.active_button{
+      color:green;
+      text-decoration: underline;
+}
+
+
+.alert{
+      color:red ;
+}
