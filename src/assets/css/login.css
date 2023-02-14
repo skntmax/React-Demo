@@ -1,11 +1,18 @@
+*{
+      margin: 0px;
+      padding: 0px;
+      box-sizing: bo;
+}
+
 .login_page{
      padding:  0px 500px 0px 500px ;
      margin: 300px 0px 0px 0px ;
-     
+     width: 100vw;
+     height: 100vh;
 }
 
 .hover_button{
-cursor: pointer;
+  cursor: pointer;
 }
 
 .active_button{

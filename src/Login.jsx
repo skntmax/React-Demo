@@ -21,7 +21,6 @@ const [state, setState] = useState({
 })
   const {login , signup }  = state  
   
-console.log(state)
      
   return (
     <React.Fragment>
@@ -31,7 +30,7 @@ console.log(state)
 
      }}>
       
-        <h1 className='text-capitalize hover_button' >   <span className= {login?'active_button':""}   
+        <h2 className='text-capitalize hover_button' >   <span className= {login?'active_button':""}   
          onClick={()=>{
            setState( {
              ...state , login:true , signup:false  
@@ -46,7 +45,7 @@ console.log(state)
             ...state , login:false , signup:true  
           })
         }} 
-        > SIGNUP </span> </h1>
+        > SIGNUP </span> </h2>
    
  {    login?
   <form> 
