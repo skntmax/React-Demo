@@ -23,6 +23,9 @@ import MyBlogs from './Blog/user_blogs/MyBlogs';
 import constat from './constat';
 import ShowBlogs from './Blog/user_blogs/ShowBlogs';
 import ShowByTitle from './Blog/user_blogs/ShowByTitle';
+import Auth from './Auth';
+import Passport from './Passport';
+import Pagination2 from './Pagination2';
 export default  createBrowserRouter([
   {
     path: "/",
@@ -106,6 +109,26 @@ export default  createBrowserRouter([
     path: "/geolocation",
     element: <Geolocation />  ,  
   },
+   
+  {
+    path: "/oauth",
+    element: <Auth />  ,  
+  },
+
+  {
+    path: "/passport",
+    element: <Passport />  ,  
+  },
+
+  {
+    path: "/pagination2",
+    element: <Pagination2 />  ,    
+  }
+
+   
+
+
+
 
 
 
@@ -115,4 +138,4 @@ export default  createBrowserRouter([
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ]
+       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" ]

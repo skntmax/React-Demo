@@ -135,8 +135,6 @@ function users ( state = { list:[] } ,  action  ) {
   }
 }
 
-
-
 function loggedInUser ( state = { } ,  action  ) {
   debugger
   switch(action.type) {
@@ -148,8 +146,6 @@ function loggedInUser ( state = { } ,  action  ) {
      return {...state}      
   }
 }
-
-
 
 function userBlogs ( state = { list:[] } ,  action  ) {
   debugger

@@ -4,10 +4,10 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import Badge from 'react-bootstrap/Badge';
 
 function Geolocation() {
+   
      const [data, setData] = useState([]);
-  
       useEffect( () => {
-        
+             
          (async function () {try{
          let geoData =await axios.get('https://data.nasa.gov/resource/y77d-th95.json') 
            const {data } = geoData

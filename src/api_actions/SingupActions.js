@@ -48,8 +48,8 @@ export  const userLogin = async (model,setLoggedIn ,navigate )=>{
             setLoggedIn(true)
             let loginModel = {email:email.value , password:password.value}
              let result = await axios.post(`${process.env.REACT_APP_BASE_URL}/auth/login` , loginModel ) 
-        const { data } = result 
-        console.log(data);
+           const { data } = result 
+           console.log(data);
          
                if(data.status==200) {
                    localStorage.setItem('blog-user' , data.result.token  )
@@ -59,7 +59,6 @@ export  const userLogin = async (model,setLoggedIn ,navigate )=>{
                    alert(data.message)
                    setLoggedIn(false)
                 document.getElementById('login_button').disabled=false
-
                }  
                 
        }  else{
