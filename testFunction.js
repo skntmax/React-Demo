@@ -34,15 +34,15 @@
 //     Tech Lead - 4500000
 
 
-empid, empposiiton , doj , sal
-1     ik                9  00 
-2     ik                9  01 
-3     ie                9  00 
-4     ie                9  02 
+// empid, empposiiton , doj , sal
+// 1     ik                9  00 
+// 2     ik                9  01 
+// 3     ie                9  00 
+// 4     ie                9  02 
 
 
-select   distinct(empposiiton) as "empposiiton" , sum(sal) as "salary" from employee  
-group by empposiiton  ; 
+// select   distinct(empposiiton) as "empposiiton" , sum(sal) as "salary" from employee  
+// group by empposiiton  ; 
 
 
 

@@ -9,12 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { hydrateRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
+
+
 const root = ReactDOM.createRoot(document.getElementById("root") );
 
 root.render(
     <React.StrictMode>
     <HelmetProvider>
-    
      <ContextProvider>
        <App />    
     </ContextProvider>

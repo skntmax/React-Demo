@@ -26,6 +26,7 @@ import ShowByTitle from './Blog/user_blogs/ShowByTitle';
 import Auth from './Auth';
 import Passport from './Passport';
 import Pagination2 from './Pagination2';
+import ReactQuery from './ReactQuery';
 export default  createBrowserRouter([
   {
     path: "/",
@@ -123,8 +124,14 @@ export default  createBrowserRouter([
   {
     path: "/pagination2",
     element: <Pagination2 />  ,    
+  } ,
+
+  {
+    path: "/react-query",
+    element: <ReactQuery />  ,    
   }
 
+   
    
 
 
@@ -138,4 +145,4 @@ export default  createBrowserRouter([
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" ]
+       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" ,"react-query" ]
