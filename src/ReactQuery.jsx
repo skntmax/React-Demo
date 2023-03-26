@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 
 function ReactQuery() {
   
-    const { isLoading, error , data  } = useQuery({
+    const { isLoading, error , data  } = useQuery( {
         queryKey: ['repoData'],
         queryFn: () =>
           fetch('https://fakestoreapi.com/products/').then(
@@ -23,7 +23,9 @@ function ReactQuery() {
       return ( 
         <div>
             <Helmet>
-              <title> reat query async </title>
+              
+             <title> reat query async </title>
+               
               </Helmet>
              {data && data.map((ele, i)=>{
                 return (
