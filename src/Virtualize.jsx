@@ -4,7 +4,7 @@ import { List } from 'react-virtualized';
 
 function Virtualize() {
 
-    const [data, setData] = React.useState([...new Array(90000)].fill(0).map((ele, index) => {
+    const [data, setData ] = React.useState([...new Array(90000)].fill(0).map((ele, index) => {
         return {
             userId: faker.datatype.uuid(),
             username: faker.internet.userName(),
@@ -20,13 +20,11 @@ function Virtualize() {
 
 
     const rowCount = 5000;
-    const listHeight = 400;
+    const listHeight = 1000;
     const rowHeight = 100;
-    const rowWidth = 900;
+    const rowWidth = 1000;
 
-
-
-    function renderRow({ index, key, style }) {
+    function renderRow({ index, key, style } ) {
         return (
             <div key={key} style={style} className="row">
                 id:{index + 1}
@@ -53,7 +51,7 @@ function Virtualize() {
     return (
         <div>
 
-            <h1> React-virtualization of 90000 employees at a time </h1>
+            <h1 className='text-center'> React-virtualization of 90000 employees at a time </h1>
 
             <div
                 style={{
@@ -62,24 +60,21 @@ function Virtualize() {
                     height: "100vh",
                     justifyContent: "center",
                     alignItems: "center"
-                }}
-            >
+                   }}
+               >
 
                 <div >
-
-
-
                     <List
                         width={rowWidth}
                         height={listHeight}
                         rowHeight={rowHeight}
                         rowRenderer={renderRow}
                         rowCount={data.length}
-                        overscanRowCount={3} />
-
-
+                        overscanRowCount={3} 
+                        />
 
                     {/*
+
             data.map((ele ,ind) => {
                 return (
                     <React.Fragment>
@@ -102,9 +97,11 @@ function Virtualize() {
                         </div>
                     </React.Fragment>
                 )
-            })
-        */}
+                    })
+                    */}
 
+
+                    
                 </div>
 
             </div>

@@ -28,6 +28,7 @@ import Passport from './Passport';
 import Pagination2 from './Pagination2';
 import ReactQuery from './ReactQuery';
 import Virtualize from './Virtualize';
+import FileExplorer from './FileExplorer';
 export default  createBrowserRouter([
   {
     path: "/",
@@ -136,13 +137,11 @@ export default  createBrowserRouter([
     path: "/react-virtualize",
     element: <Virtualize />  ,    
   }
-
-
-   
-   
-
-
-
+,
+  {
+    path: "/file-explorer",
+    element: <FileExplorer />  ,    
+  }
 
 
 
@@ -153,5 +152,5 @@ export default  createBrowserRouter([
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
         "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" ,"react-query" 
-       ,"react-virtualize"
+       ,"react-virtualize" ,"file-explorer"
       ]

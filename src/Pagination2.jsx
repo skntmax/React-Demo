@@ -26,8 +26,8 @@ function Pagination2() {
           cursor:"pointer" ,
            border: `4px solid blue ` ,
            padding:"2px",
-
-        }}
+        }} 
+         
    onClick={ ()=> { setCurrentPage(currentPage-1) } }
           >  {"<<"}previous </span> 
       
