@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { allRoutes } from '../Router'
 import Button from 'react-bootstrap/Button';
@@ -11,6 +11,9 @@ export default function Home() {
   const [colors, setColors] = useState([
     "primary", "secondary", "success", "danger", "warning", "info", "light", "dark"
   ]);
+
+  const [randomNum, setRandomNum] = useState(0)
+   
   const navigate = useNavigate();
 
 
@@ -26,6 +29,25 @@ export default function Home() {
     return rand;
   }
 
+   
+  useEffect(() => {
+  
+     setInterval(() => {
+      setRandomNum(generateRandom(0,7))
+     }, 2000);
+     
+  }, [randomNum])
+
+  // useEffect(() => {
+  
+  //     setInterval(() => {
+  //       setRandomNum(generateRandom(0,7))
+  //     }, 3000);
+
+  // }, [randomNum]);
+
+
+ 
 
   return (
     <div className="text-center back" >
@@ -34,13 +56,11 @@ export default function Home() {
         {allRoutes && allRoutes.map((ele) => {
           return (
             <Badge
-
-               bg={colors[generateRandom(0, 7)]}
-              className="homepage_div div_content"
-              onClick={() => { navigate(ele) }
-              }
-          
-            >
+               bg={colors[generateRandom(0,7)]}
+               className="homepage_div div_content"
+               onClick={() => { navigate(ele) }
+               }
+             >
                 <Link to={ele} style={{ textDecoration: "none", color: "black" }} >
                   <h5>  {ele}  </h5>
                 </Link>
