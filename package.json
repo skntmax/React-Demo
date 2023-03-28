@@ -10,6 +10,7 @@
     "@faker-js/faker": "^7.6.0",
     "@material-ui/core": "^4.12.4",
     "@mui/material": "^5.10.17",
+    "@react-oauth/google": "^0.9.0",
     "@tanstack/react-query": "^4.28.0",
     "@tanstack/react-query-devtools": "^4.28.0",
     "@testing-library/jest-dom": "^5.16.5",

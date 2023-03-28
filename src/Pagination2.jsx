@@ -3,12 +3,8 @@ import React  from 'react'
 function Pagination2() {
      
     const [data, setData] = React.useState( (new Array(1000)).fill(undefined).map((ele ,index)=> "string"+(index+1)) ) 
-
-
            const [currentPage, setCurrentPage] = React.useState(1);
       
-
-       
   return (
     <div> 
     <h1> Current page : {currentPage} </h1>

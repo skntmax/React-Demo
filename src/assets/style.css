@@ -54,13 +54,15 @@
 @media screen and (min-width: 480px) {
   .main_div {
     flex-direction: column;
+     
   }
+
  .div_content{
   width: 300px;
   height: 300px;  
   align-items: center; 
   padding: 130px;
-  justify-content: center;
+  justify-content: space-evenly;
  }
 }
 
