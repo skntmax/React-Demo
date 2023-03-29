@@ -37,10 +37,10 @@ function Blog(props) {
     height:"100vh" ,
     backgroundRepeat: "no-repeat",
    backgroundSize: "100% 100%"
-
    }} > 
 
     <Navbar bg="light" expand="lg">
+    
     <Container fluid>
       <Navbar.Brand >
       <span onClick={e=> navigate(-1) }  > <img src={Goback} width={30} /> </span> techymaxx blog  
@@ -52,18 +52,19 @@ function Blog(props) {
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-        
+         
           <NavDropdown title="Link" id="navbarScrollingDropdown">
             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
             <NavDropdown.Item href="#action4">
               Another action
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action5">
+            <NavDropdown.Item href="#action5" >
               Something else here
             </NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> 
           </Nav>
+
              <CreateBlog /> 
          
       </Navbar.Collapse>

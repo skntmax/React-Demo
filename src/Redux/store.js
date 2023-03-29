@@ -81,7 +81,7 @@ function contacts(state = contact_list , action ) {
    
    
   function blogList ( state = intialBList ,  action  ) {
-     debugger
+     
      switch(action.type) {
       case "BLOG_CREATE":
              console.log("log data " , action.payload.data );
@@ -103,7 +103,7 @@ function contacts(state = contact_list , action ) {
 
 
   function blogList2 ( state = intialBList2 ,  action  ) {
-    debugger
+    // debugger
     switch(action.type) {
      case "BLOG_LIST":
         return { ...state , list:action.payload.data }
@@ -115,7 +115,7 @@ function contacts(state = contact_list , action ) {
 
 
  function products ( state = { list:[] } ,  action  ) {
-  debugger
+  // debugger
   switch(action.type) {
    case "PAGINATE_PRODUCT":
       return { ...state , list:action.payload.data }
@@ -126,7 +126,7 @@ function contacts(state = contact_list , action ) {
 
 
 function users ( state = { list:[] } ,  action  ) {
-  debugger
+  // debugger
   switch(action.type) {
    case "USER_DATA":
       return { ...state , list:action.payload.data }
@@ -136,7 +136,7 @@ function users ( state = { list:[] } ,  action  ) {
 }
 
 function loggedInUser ( state = { } ,  action  ) {
-  debugger
+  // debugger
   switch(action.type) {
    case "GET_USER_DATA":
       return { ...state , ...action.payload.data }
@@ -147,18 +147,33 @@ function loggedInUser ( state = { } ,  action  ) {
   }
 }
 
+ 
+
+
 function userBlogs ( state = { list:[] } ,  action  ) {
-  debugger
+  
   switch( action.type ) {
    case "USER_BLOGS":
       return { ...state , list: action.payload.data }
      default:
-      return {...state}      
+      return {...state }      
     }
 }
 
 
-export let rootReducer =  combineReducers(  { todoReducer , contacts , blogList  ,blogList2 ,products, users ,loggedInUser ,userBlogs })  
+function  getUserLoggedInData(state = { } ,  action) {
+   
+  switch(action.type)  {
+      case "USER_DATA" :
+      return {...state , ...action.payload.user_data }
+    default: 
+    return {...state} 
+  }
+  
+}
+  
+
+export let rootReducer =  combineReducers(  { todoReducer , contacts , blogList  ,blogList2 ,products, users ,loggedInUser ,userBlogs ,getUserLoggedInData })  
 let persistedRootReducer = persistReducer(persistConfig, rootReducer)
 export const store = createStore( persistedRootReducer, composeWithDevTools(applyMiddleware(thunk)) )
 export const persistor = persistStore(store) 

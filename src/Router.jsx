@@ -78,6 +78,7 @@ export default  createBrowserRouter([
     path: "/blog",
     element:  <Blog />,  
   },
+
   {
     path: "/blog/:username",
     element:  <UserBLog /> ,  
@@ -132,19 +133,18 @@ export default  createBrowserRouter([
   {
     path: "/react-query",
     element: <ReactQuery />  ,    
-  } , 
+  } ,
+    
   {
     path: "/react-virtualize",
     element: <Virtualize />  ,    
   }
 ,
+ 
   {
     path: "/file-explorer",
     element: <FileExplorer />  ,    
   }
-
-
-
    
 ]);
   

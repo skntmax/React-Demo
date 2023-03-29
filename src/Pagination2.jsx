@@ -11,20 +11,20 @@ function Pagination2() {
     
 
     <ul>
-   
-       
-        {data.slice( (currentPage-1)*10 , currentPage*10 ).map((ele)=>{
+        
+     {data.slice( (currentPage-1)*10 , currentPage*10 ).map((ele)=>{
              return <li> {ele} </li>
-        })}
-
+         })
+       }
+         
         <span
         style={{
           cursor:"pointer" ,
            border: `4px solid blue ` ,
            padding:"2px",
-        }} 
-         
-   onClick={ ()=> { setCurrentPage(currentPage-1) } }
+        }}
+          
+      onClick={ ()=> { setCurrentPage(currentPage-1) } }
           >  {"<<"}previous </span> 
       
          { new Array(Math.ceil( (new Array(data.length)).fill(undefined).length/10)).fill(undefined).map((ele ,i)=>{

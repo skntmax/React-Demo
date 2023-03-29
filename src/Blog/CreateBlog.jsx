@@ -142,19 +142,15 @@ function CreateBlog() {
 
   return (
     <React.Fragment> 
-     
 
-
-
-
-
+    
      {
       Object.keys(userData).length==0?"":  <Button  className="me-2 mb-2" onClick={() => handleShow(true)}>
       Create Blog 
      </Button>
      }
-     <CommonModal title="Login/signup" />  
-          
+     <CommonModal title="Login/signup" /> 
+
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false) } >
        <Modal.Header closeButton className="px-5">
       
