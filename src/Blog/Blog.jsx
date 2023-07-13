@@ -17,8 +17,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-
 import CreateBlog from './CreateBlog'
 import SearchBlogs from './user_blogs/SearchBlogs';
 const BlogDiv = React.lazy(() => import("./BlogDiv"));

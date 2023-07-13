@@ -29,6 +29,12 @@ import Pagination2 from './Pagination2';
 import ReactQuery from './ReactQuery';
 import Virtualize from './Virtualize';
 import FileExplorer from './FileExplorer';
+import Three from './Three';
+import Calender from './component/Calender';
+
+
+import Kapil  from './component/Kapil';
+
 export default  createBrowserRouter([
   {
     path: "/",
@@ -84,6 +90,7 @@ export default  createBrowserRouter([
     element:  <UserBLog /> ,  
   },
 
+
   {
     path: constat.user_show,
     element:  <ShowBlogs /> ,  
@@ -108,7 +115,7 @@ export default  createBrowserRouter([
     path: "/hoc-class-component",
     element: <Test />   ,  
   },
-
+   
   {
     path: "/geolocation",
     element: <Geolocation />  ,  
@@ -144,13 +151,34 @@ export default  createBrowserRouter([
   {
     path: "/file-explorer",
     element: <FileExplorer />  ,    
+  }  ,
+   
+  {
+    path: "/three",
+    element: <Three />  ,    
   }
+  ,
+
+  {
+    path: "/calender",
+    element: <Calender />  ,    
+  }
+  ,
+  {
+    path: "/kapil",
+    element: <Kapil />  ,    
+  }
+  
+
+
+
    
 ]);
+ 
   
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
         "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" ,"react-query" 
-       ,"react-virtualize" ,"file-explorer"
+       ,"react-virtualize" ,"file-explorer" , "three" ,"calender" ,"kapil"
       ]

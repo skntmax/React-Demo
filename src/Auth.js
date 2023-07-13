@@ -22,6 +22,7 @@ function Auth() {
       
 
      console.log("useruser" , user);
+     console.log("is loading " ,isLoading );
   debugger     
   
       if(user!=undefined) { 
@@ -47,21 +48,23 @@ function Auth() {
       <Container>
         <Navbar.Brand href="#home">Auth app </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-
         <Navbar.Collapse className="justify-content-end"> 
-
           <Navbar.Text>
-           { isAuthenticated ? <span> { user.nickname }  <Avatar
+           
+           {isAuthenticated ? <span> { user.nickname }  <Avatar
            src={user.picture} 
            googleId={user.nickname}
             size="25" 
            round={true}
-           />  <Button  
+           className="mr-1"
+           />  
+           <Button  
            variant="outlined" color="error"
             size="small" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
            Log Out
-          </Button> </span> : <Button  size="small" variant ="outlined" onClick={() => loginWithRedirect()} >Log In</Button>
-           }
+          </Button> </span> : 
+          <Button  size="small" variant ="outlined" onClick={() => loginWithRedirect()} >Log In</Button>
+        }
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>

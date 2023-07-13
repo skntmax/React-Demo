@@ -34,12 +34,11 @@ export default function Home() {
   
      setInterval(() => {
       setRandomNum(generateRandom(0,7))
-     }, 2000);
+     }, 5000);
      
   }, [randomNum])
 
   // useEffect(() => {
-  
   //     setInterval(() => {
   //       setRandomNum(generateRandom(0,7))
   //     }, 3000);
@@ -56,7 +55,8 @@ export default function Home() {
         {allRoutes && allRoutes.map((ele) => {
           return (
             <Badge
-               bg={colors[generateRandom(0,7)]}
+                style={{}}  
+              bg={colors[generateRandom(0,7)]}
                className="homepage_div div_content"
                onClick={() => { navigate(ele) }
                }

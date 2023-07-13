@@ -16,12 +16,12 @@ const root = ReactDOM.createRoot(document.getElementById("root") );
 root.render(
     <React.Fragment>
     <Auth0Provider
-    domain="dev-uq6v6xo4yxju6r3r.us.auth0.com"
-    clientId="EyqOYUCjVeMRc5C8aa5IQouJqS29GanO"
+    domain={process.env.REACT_APP_BASE_DOMAIN}
+    clientId={process.env.REACT_APP_BASE_CLIENT_ID}
     authorizationParams={{
       redirect_uri: window.location.origin
     }} >
-  
+     
     <HelmetProvider>
      <ContextProvider>
        <App />    
