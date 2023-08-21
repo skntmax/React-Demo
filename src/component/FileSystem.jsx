@@ -34,7 +34,7 @@ function FileSystem() {
       file2:true
     } ,
     file:true
- } ]  ); 
+ } ]  );  
    
 
   return (
@@ -44,9 +44,12 @@ function FileSystem() {
         return ( 
              <React.Fragment>  
               <div >  
-                {typeof(ele.folder)=='object'? "something" :"📁"+{ele}  }
-               </div>
-             
+ 
+               {typeof(ele.folder)=='object'? "something" :"📁"+{ele}  }
+              
+                </div>
+
+                
 
               </React.Fragment>
         )  

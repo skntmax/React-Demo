@@ -26,15 +26,8 @@ import ShowByTitle from './Blog/user_blogs/ShowByTitle';
 import Auth from './Auth';
 import Passport from './Passport';
 import Pagination2 from './Pagination2';
-import ReactQuery from './ReactQuery';
-import Virtualize from './Virtualize';
-import FileExplorer from './FileExplorer';
-import Three from './Three';
-import Calender from './component/Calender';
-
-
-import Kapil  from './component/Kapil';
-
+import S3upload from './S3upload';
+import TypeWriter from './component/TypeWriter';
 export default  createBrowserRouter([
   {
     path: "/",
@@ -134,43 +127,13 @@ export default  createBrowserRouter([
   {
     path: "/pagination2",
     element: <Pagination2 />  ,    
-  } ,
-
-  
-  {
-    path: "/react-query",
-    element: <ReactQuery />  ,    
-  } ,
-    
-  {
-    path: "/react-virtualize",
-    element: <Virtualize />  ,    
   }
 ,
- 
   {
-    path: "/file-explorer",
-    element: <FileExplorer />  ,    
-  }  ,
-   
-  {
-    path: "/three",
-    element: <Three />  ,    
+    path: "/type-writer",
+    element: <TypeWriter />  ,    
   }
-  ,
-
-  {
-    path: "/calender",
-    element: <Calender />  ,    
-  }
-  ,
-  {
-    path: "/kapil",
-    element: <Kapil />  ,    
-  }
-  
-
-
+,
 
    
 ]);
@@ -179,6 +142,4 @@ export default  createBrowserRouter([
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-        "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" ,"react-query" 
-       ,"react-virtualize" ,"file-explorer" , "three" ,"calender" ,"kapil"
-      ]
+       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" , "s3-upload" ,"type-writer" ]
