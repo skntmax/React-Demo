@@ -15,13 +15,19 @@ class graph  {
             }
           
         for(let nodes in this.stations) {
-           if(nodes==s) {
-             this.stations[s] = [...this.stations[nodes] , d ]
+           if( nodes==s && !this.stations[nodes].includes(d) ) { 
+              this.stations[s] = [...this.stations[nodes] , d ]
             } 
         }
+         
          return this.stations
          
      }
+
+     addStation(station) {
+      this.nodes.push(station)
+    }
+
 
 
      removeStations(station) {

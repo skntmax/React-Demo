@@ -81,20 +81,9 @@ function Graph() {
         const { connection:{s1,  s2 }} = Data
          if(s1!="" && s2!="" && s1!=s2 ){
             graph_global.addSubstations(s1 , s2 )
-
-            let connect_stations = []
-            for(let [key, arr] of Object.entries(graph_global.stations)   ) {
-                if(arr.length>0   ){
-                    connect_stations.push(...arr.map(item=> {return { from: key, to: item   }}) )
-                }
-            }   
-
-
-            debugger
-            setData({...Data ,nodes:graph_global.nodes , stations:graph_global.stations , joined_stations: new Set([...Data.joined_stations , ...connect_stations ])    })
             
-        
-
+            setData({...Data ,nodes:graph_global.nodes , stations:graph_global.stations  })
+            
               
           }else {
              alert("either fill diffrent cities or fill both the fields ")
@@ -137,8 +126,10 @@ function Graph() {
   </div>
 </div>
   
+ 
 <div className='my-2 ' id="myDiagramDiv"
-     style={{width:"100vw", height:"100vh", backgroundColor: "#DAE4E4"}}></div>
+     style={{width:"100vw", height:"100vh", backgroundColor: "#DAE4E4"}}>
+</div>
 
 
 
