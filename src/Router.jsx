@@ -28,6 +28,7 @@ import Passport from './Passport';
 import Pagination2 from './Pagination2';
 import S3upload from './S3upload';
 import TypeWriter from './component/TypeWriter';
+import Graph from './component/Graph';
 export default  createBrowserRouter([
   {
     path: "/",
@@ -133,6 +134,11 @@ export default  createBrowserRouter([
     path: "/type-writer",
     element: <TypeWriter />  ,    
   }
+ ,
+ {
+  path: "/graph",
+  element: <Graph />  ,    
+}
 ,
 
    
@@ -142,4 +148,4 @@ export default  createBrowserRouter([
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" , "s3-upload" ,"type-writer" ]
+       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" , "s3-upload" ,"type-writer" ,"graph" ]
