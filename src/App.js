@@ -34,10 +34,7 @@ function App() {
      </HelmetProvider>
       </PersistGate>
       </Provider>
-       
-
       <ReactQueryDevtools initialIsOpen={true} />
-
       </QueryClientProvider>
    
     

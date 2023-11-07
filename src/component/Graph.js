@@ -39,27 +39,10 @@ function Graph() {
 
     
     useEffect(()=>{
-         myDiagram = new go.Diagram("myDiagramDiv",
-            { // enable Ctrl-Z to undo and Ctrl-Y to redo
-            "undoManager.isEnabled": true
-            });
 
-            myDiagram.nodeTemplate =
-             
-  new go.Node("Auto")  // the Shape will automatically surround the TextBlock
-    // add a Shape and a TextBlock to this "Auto" Panel
-    .add(new go.Shape("RoundedRectangle",
-        { strokeWidth: 0, fill: "white" })  // no border; default fill is white
-        .bind("fill", "color"))  // Shape.fill is bound to Node.data.color
-    .add(new go.TextBlock({ margin: 8, stroke: "#333" })  // some room around the text
-        .bind("text", "key"));  // TextBlock.text is bound to Node.data.key
-
-            myDiagram.model = new go.GraphLinksModel(
-                all_stations,
-                Data.joined_stations
-                );
+        
                 
-    } , [Data.joined_stations.length] )
+       } , [] )
 
 
 
@@ -118,7 +101,6 @@ function Graph() {
             </div>
             <div class="col">
             <Cities cities={cities} onChangeHandler={onChangeHandler} s="s2"/>
-
     </div>
     <div class="col">
      <button className='btn btn-primary' type="submit" onClick={addStation}> join station </button>
@@ -126,11 +108,11 @@ function Graph() {
   </div>
 </div>
   
- 
+ {
+     
 <div className='my-2 ' id="myDiagramDiv"
      style={{width:"100vw", height:"100vh", backgroundColor: "#DAE4E4"}}>
-</div>
-
+    </div> }
 
 
     </div>

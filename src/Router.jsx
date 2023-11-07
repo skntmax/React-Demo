@@ -29,6 +29,7 @@ import Pagination2 from './Pagination2';
 import S3upload from './S3upload';
 import TypeWriter from './component/TypeWriter';
 import Graph from './component/Graph';
+import ImageMap from './component/ImageMap';
 export default  createBrowserRouter([
   {
     path: "/",
@@ -140,6 +141,11 @@ export default  createBrowserRouter([
   element: <Graph />  ,    
 }
 ,
+
+{
+  path: "/image-map",
+  element: <ImageMap />  ,    
+}
 
    
 ]);

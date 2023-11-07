@@ -30,7 +30,7 @@ class graph  {
 
 
 
-     removeStations(station) {
+    removeStations(station) {
 
      for(let st in this.stations) {
           

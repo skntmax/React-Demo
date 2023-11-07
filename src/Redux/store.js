@@ -4,10 +4,9 @@ import { combineReducers } from 'redux'
 import  thunk from 'redux-thunk'
 
 
-
 // ------------------ to make redux persist ------------
  
-import {persistReducer , persistStore} from 'redux-persist';
+import { persistReducer , persistStore} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
  
 // ------------------ to make redux persist ------------
