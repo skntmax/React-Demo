@@ -1,6 +1,6 @@
-FROM node
+FROM node:20.0.0
 WORKDIR /blog-ui
 COPY package*.json .
-RUN npm i 
+RUN npm install
 COPY . .
 ENTRYPOINT [ "npm" ,"start" ]
