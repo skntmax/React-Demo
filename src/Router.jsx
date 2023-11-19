@@ -154,4 +154,4 @@ export default  createBrowserRouter([
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" , "s3-upload" ,"type-writer" ,"graph" ]
+       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" , "s3-upload" ,"type-writer" ,"graph" ,"image-map" ]

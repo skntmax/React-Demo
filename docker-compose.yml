@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  blog-api:
+    build: "./../blog-backend"
+    environment:
+      - PORT=9999
+      - DB=mongodb+srv://skntmax:sknt987@blog-cluster.qewamek.mongodb.net/blog?retryWrites=true&w=majority
+      - USERNAME=skntmax
+      - PASSWORD=sknt987
+      - DATABASE=blog
+    ports:
+      - "9999:9999"
+
+  blog-ui:
+    depends_on:
+      - blog-api
+    build: "."
+    ports:
+      - "3000:3000"

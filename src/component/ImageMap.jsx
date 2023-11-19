@@ -1,5 +1,6 @@
-import React from 'react'
-import banner from './../assets/Luxor Journey.webp'
+import React, { Component } from 'react';
+
+import banner from './../assets/road_journey.jpg'
 import gsap from "gsap";
 import './../assets/imagemap.css'
 // get other plugins:
@@ -13,94 +14,149 @@ import { MotionPathPlugin } from "gsap/all";
 // don't forget to register plugins
 gsap.registerPlugin(ScrollTrigger, Draggable, Flip, MotionPathPlugin); 
 
-function ImageMap() {
+// function ImageMap() {
   
-    const Visible =(boxid , bannerImage)=>{
+//     const Visible =(boxid , bannerImage)=>{
          
-       let img1 = document.getElementById(boxid)
-       img1.style.cursor="pointer"
-       let image_visible = document.getElementById(bannerImage)
-       image_visible.innerHTML="Setting a line-height the same value ."
-       gsap.to(image_visible , {
-        cursor:"pointer",
-        duration: 1,
-        width: bannerImage=='circle3'?80:
-        bannerImage=='circle4'?70 : 120 ,
-        height: bannerImage=='circle3'?80:bannerImage=='circle4'?70:  120,
-        top: 20,
-        scale:2,
-       opacity:1,
-       textAlign: "center",
-       fontSize:"10px",
-       verticalSlign: "middle",
-       display: "flex",
-       alignItems:"center",
-       justifyContent: "center"
-       }) 
+//        let img1 = document.getElementById(boxid)
+//        img1.style.cursor="pointer"
+//        let image_visible = document.getElementById(bannerImage)
+//        image_visible.innerHTML="Setting a line-height the same value ."
+//        gsap.to(image_visible , {
+//         cursor:"pointer",
+//         duration: 1,
+//         width: bannerImage=='circle3'?80:
+//         bannerImage=='circle4'?70 : 120 ,
+//         height: bannerImage=='circle3'?80:bannerImage=='circle4'?70:  120,
+//         top: 20,
+//         scale:2,
+//        opacity:1,
+//        textAlign: "center",
+//        fontSize:"10px",
+//        verticalSlign: "middle",
+//        display: "flex",
+//        alignItems:"center",
+//        justifyContent: "center"
+//        }) 
          
-       }
+//        }
 
 
-       const Unhide = (boxid , bannerImage)=>{
-        let image_visible = document.getElementById(bannerImage)
-        gsap.to(image_visible , {
-         duration: 1,
-         width: 0,
-         height: 0,
-         top: 150,
-         scale:2,
-         opacity:0,
-        }) 
-       }
+//        const Unhide = (boxid , bannerImage)=>{
+//         let image_visible = document.getElementById(bannerImage)
+//         gsap.to(image_visible , {
+//          duration: 1,
+//          width: 0,
+//          height: 0,
+//          top: 150,
+//          scale:2,
+//          opacity:0,
+//         }) 
+//        }
 
         
-        
-
-
-    return (
+//     return (
   
-        <div style={{
-        position:"relative",
+//         <div style={{
+//         position:"relative",
       
-    }}>
+//     }}>
 
-     <div  style={{
-        position:"absolute",
-        zIndex:1,
-        width:800,
-         height:600,
-    }}>
-
-
-
-    <div id="img1" onMouseEnter={()=> Visible('img1' , "circle")}   onMouseLeave={()=> Unhide('img1' , "circle")}   >
-    <div id='circle' > </div>  </div>
-
-
-    <div id="img2" onMouseEnter={ ()=> Visible("img2" ,"circle2")}   onMouseLeave={()=> Unhide('img2' , "circle2")}     >
-    <div id='circle2' > </div>  </div>
+//      <div  style={{
+//         position:"absolute",
+//         zIndex:1,
+//         width:800,
+//          height:600,
+//     }}>
 
 
 
-    <div id="img3" onMouseEnter={ ()=> Visible("img3" ,"circle3")}   onMouseLeave={()=> Unhide('img3' , "circle3")}     >
-    <div id='circle3' > </div>  </div>
+//     <div id="img1" onMouseEnter={()=> Visible('img1' , "circle")}   onMouseLeave={()=> Unhide('img1' , "circle")}   >
+//     <div id='circle' > </div>  </div>
+
+
+//     <div id="img2" onMouseEnter={ ()=> Visible("img2" ,"circle2")}   onMouseLeave={()=> Unhide('img2' , "circle2")}     >
+//     <div id='circle2' > </div>  </div>
+
+
+
+//     <div id="img3" onMouseEnter={ ()=> Visible("img3" ,"circle3")}   onMouseLeave={()=> Unhide('img3' , "circle3")}     >
+//     <div id='circle3' > </div>  </div>
 
 
     
-    <div id="img4" onMouseEnter={ ()=> Visible( "img4" ,"circle4" )}   onMouseLeave={()=> Unhide('img4' , "circle4")}     >
-    <div id='circle4' > </div>  </div>
+//     <div id="img4" onMouseEnter={ ()=> Visible( "img4" ,"circle4" )}   onMouseLeave={()=> Unhide('img4' , "circle4")}     >
+//     <div id='circle4' > </div>  </div>
 
-
-
-      </div>
-    <img src={banner} width={"100%"} height={1000}
-    style={{
-        position:"absolute"
-    }}
+//       </div>
+//     <img src={banner} width={"100%"} height={1000}
+//     style={{
+//         position:"absolute"
+//     }}
      
-    />  
-    </div>
-  )
+//     />  
+//     </div>
+//   )
+// }
+
+// export default ImageMap
+
+
+
+
+
+
+
+
+
+
+
+
+
+class CoordinateMapping extends Component {
+
+
+
+  handleDivClick = (e) => {
+    const divRect = e.currentTarget.getBoundingClientRect();
+    const imageRect = this.imageRef.getBoundingClientRect();
+
+    const xInDiv = e.clientX - divRect.left;
+    const yInDiv = e.clientY - divRect.top;
+
+    const xInImage = (xInDiv / divRect.width) * imageRect.width;
+    const yInImage = (yInDiv / divRect.height) * imageRect.height;
+
+    console.log(`Coordinates in div: (${xInDiv}, ${yInDiv})`);
+    console.log(`Coordinates on image: (${xInImage}, ${yInImage})`);
+  }
+
+  render() {
+    const divStyle = {
+      width: '200px',
+      height: '200px',
+      position: 'relative',
+      // Add any other styles as necessary
+    };
+
+    const imageStyle = {
+      // Add image styles
+    };
+
+    return (
+      <div id="myDiv" style={divStyle} onClick={this.handleDivClick}>
+        {/* Your content within the div */}
+        <img
+          id="myImage"
+          src={banner}
+       
+          alt="My Image"
+          style={imageStyle}
+          ref={(image) => (this.imageRef = image)}
+        />
+      </div>
+    );
+  }
 }
 
-export default ImageMap
+export default CoordinateMapping;
