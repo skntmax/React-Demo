@@ -30,6 +30,7 @@ import S3upload from './S3upload';
 import TypeWriter from './component/TypeWriter';
 import Graph from './component/Graph';
 import ImageMap from './component/ImageMap';
+import ReactQuery from './products/ReactQuery';
 export default  createBrowserRouter([
   {
     path: "/",
@@ -142,16 +143,23 @@ export default  createBrowserRouter([
 }
 ,
 
+
 {
   path: "/image-map",
   element: <ImageMap />  ,    
-}
+}, 
 
-   
+{
+  path: "/React-query-example",
+  element: <ReactQuery />  ,    
+}, 
+
+
 ]);
  
   
 
 export const allRoutes = [
      '/' , 'todo' ,'calc' ,"counter" ,"callback" , "hoc" ,"todo-redux" ,"contact" , "redux-thunk-blog-list" ,
-       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" , "s3-upload" ,"type-writer" ,"graph" ,"image-map" ]
+       "file-system"  , "blog" , "pagination" , "hoc-class-component" ,"geolocation" ,"oauth",   "passport" ,"pagination2" , "s3-upload" ,"type-writer" ,"graph" ,"image-map" , "React-query-example" ]
+ 
