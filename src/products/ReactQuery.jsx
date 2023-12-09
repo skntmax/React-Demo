@@ -4,10 +4,13 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { getProducts } from "./actions";
 import List from "./List";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { useState } from "react";
+ 
 function ReactQuery() {
      
+  let params = useParams()
+   
   const [searchParams, setQueryParams] = useSearchParams({ limit: 5, skip: 0 });
 
   let skip = parseInt(searchParams.get("skip")) || 0;
@@ -24,9 +27,12 @@ function ReactQuery() {
 
   const { data, isLoading, isError, isInitialLoading } = useQuery(
     {
-      queryKey: ["products", "limit", "skip"],
+      queryKey: ["products", limit, skip],
       queryFn: getProducts,
+      staleTime:10000,
     },
+    
+   
 
 
   );
@@ -42,6 +48,13 @@ function ReactQuery() {
   if (isInitialLoading) {
     return <React.Fragment> {isInitialLoading} </React.Fragment>;
   }
+
+
+        // useEffect(() => {
+
+            
+        // }, [props.match.params])
+
 
   if (data)
     return (
