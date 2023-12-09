@@ -10,6 +10,8 @@ services:
       - USERNAME=skntmax
       - PASSWORD=sknt987
       - DATABASE=blog
+    volumes:
+      - /home/shashi/Desktop/shashikant/Desktop/sample-react-app:/blog-ui 
     ports:
       - "9999:9999"
 
